@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+  <channel>
+    <title>&#x661F;&#x7A7A;&#x2122;'s Blog</title>
+    <link>http://leaveboy.github.com</link>
+    <pubDate>2013-06-04 15:28:26 +0800</pubDate>
+    <item>
+      <title>&#x5173;&#x4E8E;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</title>
+      <link>http://leaveboy.github.com/blog/2013/05/29/%E5%85%B3%E4%BA%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F</link>
+      <pubDate>2013-05-29</pubDate>
+      <description>&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x5F0F;&#x8BC6;&#x522B;1-65555&#x4E4B;&#x95F4;&#x7684;&#x6570;</description>
+    </item>
+    <item>
+      <title>&#x300C;&#x8F6C;&#x300D;&#x4F7F;&#x7528; Byzanz &#x5F55;&#x5236; Gif &#x52A8;&#x753B;&#x6216; Ogv &#x89C6;&#x9891;</title>
+      <link>http://leaveboy.github.com/blog/2013/04/08/%E8%BD%AC-%E4%BD%BF%E7%94%A8-byzanz-%E5%BD%95%E5%88%B6-gif-%E5%8A%A8%E7%94%BB%E6%88%96-ogv-%E8%A7%86%E9%A2%91</link>
+      <pubDate>2013-04-08</pubDate>
+      <description>&#x4E00;&#x4E2A;&#x5C4F;&#x5E55;&#x5F55;&#x50CF;&#x5DE5;&#x5177;&#xFF0C;&#x7ECF;&#x5E38;&#x5FD8;&#x8BB0;&#x540D;&#x5B57;&#xFF0C;&#x73B0;&#x5728;&#x5907;&#x6CE8;&#x4E0B;</description>
+    </item>
+    <item>
+      <title>Android keyevent&#x6293;&#x56FE;&#xFF0C;&#x4F7F;&#x7528;jpeg565&#x5BF9;&#x6570;&#x636E;&#x538B;&#x7F29;</title>
+      <link>http://leaveboy.github.com/blog/2013/03/07/android-keyevent%E6%8A%93%E5%9B%BE-%E4%BD%BF%E7%94%A8jpeg565%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9</link>
+      <pubDate>2013-03-07</pubDate>
+      <description>&#x524D;&#x7AEF;&#x65F6;&#x95F4;&#x4E3A;&#x4E86;&#x505A;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;,&#x505A;&#x4E86;&#x4E00;&#x4E2A;&#x5FEB;&#x6377;&#x6293;&#x56FE;&#x529F;&#x80FD;</description>
+    </item>
+    <item>
+      <title>&#x5982;&#x4F55;&#x5E26;&#x8DEF;&#x5F84;&#x590D;&#x5236;&#x6587;&#x4EF6;</title>
+      <link>http://leaveboy.github.com/blog/2013/02/19/%E5%A6%82%E4%BD%95%E5%B8%A6%E8%B7%AF%E5%BE%84%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6</link>
+      <pubDate>2013-02-19</pubDate>
+      <description>Linux&#x4E0B;&#x5E26;&#x8DEF;&#x5F84;&#x590D;&#x5236;&#x6587;&#x4EF6;</description>
+    </item>
+    <item>
+      <title>archlinux awsome3.5 config</title>
+      <link>http://leaveboy.github.com/blog/2013/01/09/archlinux-awsome3-5-config</link>
+      <pubDate>2013-01-09</pubDate>
+      <description>3.5 &#x7248;&#x672C;&#x65B0;&#x7684;&#x914D;&#x7F6E;</description>
+    </item>
+    <item>
+      <title>ubuntu virtualbox XP &#x4F7F;&#x7528;adb&#x53D7;&#x9650;&#x95EE;&#x9898;</title>
+      <link>http://leaveboy.github.com/blog/2012/10/18/ubuntu-virtualbox-xp-%E4%BD%BF%E7%94%A8adb%E5%8F%97%E9%99%90%E9%97%AE%E9%A2%98</link>
+      <pubDate>2012-10-18</pubDate>
+      <description>vbox&#x4F7F;&#x7528;adb</description>
+    </item>
+    <item>
+      <title>&#x5199;&#x4E86;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;prey&#x529F;&#x80FD;&#x7684;&#x811A;&#x672C;</title>
+      <link>http://leaveboy.github.com/blog/2011/08/24/%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA%E7%B1%BB%E4%BC%BCprey%E5%8A%9F%E8%83%BD%E7%9A%84%E8%84%9A%E6%9C%AC</link>
+      <pubDate>2011-08-24</pubDate>
+      <description>&#x7528;perl&#x5B9E;&#x73B0;prey&#x7684;&#x529F;&#x80FD;</description>
+    </item>
+    <item>
+      <title>irssi + bitlbee</title>
+      <link>http://leaveboy.github.com/blog/2011/07/26/irssi-%2B-bitlbee</link>
+      <pubDate>2011-07-26</pubDate>
+      <description>irssi&#x548C;bitlbee&#x771F;&#x662F;&#x7EDD;&#x914D;</description>
+    </item>
+    <item>
+      <title>&#x5173;&#x4E8E;mutt&#x53D1;&#x9001;&#x4E2D;&#x6587;&#x9644;&#x4EF6;&#xFF0C;foxmail&#xFF0C;outlook&#x63A5;&#x53D7;&#x4E0D;&#x5230;&#x7684;&#x95EE;&#x9898;</title>
+      <link>http://leaveboy.github.com/blog/2011/04/15/%E5%85%B3%E4%BA%8Emutt%E5%8F%91%E9%80%81%E4%B8%AD%E6%96%87%E9%99%84%E4%BB%B6-foxmail-outlook%E6%8E%A5%E5%8F%97%E4%B8%8D%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98</link>
+      <pubDate>2011-04-15</pubDate>
+      <description>mutt&#x4E2D;&#x6587;&#x9644;&#x4EF6;&#x540D;patch</description>
+    </item>
+    <item>
+      <title>&#x5728;AWESOME&#x4E0A;&#x52A0;&#x5165;&#x5929;&#x6C14;&#x4F7F;&#x7528;googleAPI&#x5B57;&#x4F53;weather.ttf</title>
+      <link>http://leaveboy.github.com/blog/2011/03/26/%E5%9C%A8awesome%E4%B8%8A%E5%8A%A0%E5%85%A5%E5%A4%A9%E6%B0%94%E4%BD%BF%E7%94%A8googleapi%E5%AD%97%E4%BD%93weather-ttf</link>
+      <pubDate>2011-03-26</pubDate>
+      <description>&#x7528;weather.ttf&#x7ED9;awesome&#x6DA6;&#x8272;</description>
+    </item>
+    <item>
+      <title>awesome &#x811A;&#x672C;&#x4E2D;&#x52A0;&#x5165;&#x5929;&#x6C14;</title>
+      <link>http://leaveboy.github.com/blog/2011/03/25/awesome-%E8%84%9A%E6%9C%AC%E4%B8%AD%E5%8A%A0%E5%85%A5%E5%A4%A9%E6%B0%94</link>
+      <pubDate>2011-03-25</pubDate>
+      <description>wm awesome &#x4E2D;&#x6DFB;&#x52A0;&#x5929;&#x6C14;</description>
+    </item>
+    <item>
+      <title>lua&#x901A;&#x8FC7;google&#x7684;&#x5929;&#x6C14;api&#x83B7;&#x5F97;&#x5929;&#x6C14;</title>
+      <link>http://leaveboy.github.com/blog/2011/03/24/lua%E9%80%9A%E8%BF%87google%E7%9A%84%E5%A4%A9%E6%B0%94api%E8%8E%B7%E5%BE%97%E5%A4%A9%E6%B0%94</link>
+      <pubDate>2011-03-24</pubDate>
+      <description>google&#x5929;&#x6C14;API</description>
+    </item>
+    <item>
+      <title>lua &#x83B7;&#x5F97;&#x5929;&#x6C14;&#x4FE1;&#x606F;</title>
+      <link>http://leaveboy.github.com/blog/2011/03/23/lua-%E8%8E%B7%E5%BE%97%E5%A4%A9%E6%B0%94%E4%BF%A1%E6%81%AF</link>
+      <pubDate>2011-03-23</pubDate>
+      <description>lua demo &#x7A0B;&#x5E8F;</description>
+    </item>
+    <item>
+      <title>&#x5173;&#x4E8E;awesome&#x8BBE;&#x7F6E;&#x65F6;&#x95F4;&#x683C;&#x5F0F;&#x7684;&#x95EE;&#x9898;&#xFF01;</title>
+      <link>http://leaveboy.github.com/blog/2011/01/28/%E5%85%B3%E4%BA%8Eawesome%E8%AE%BE%E7%BD%AE%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98</link>
+      <pubDate>2011-01-28</pubDate>
+      <description>Window Manager awesome &#x7684;&#x65F6;&#x95F4;&#x663E;&#x793A;</description>
+    </item>
+    <item>
+      <title>statfs&#x83B7;&#x5F97;&#x786C;&#x76D8;&#x4F7F;&#x7528;&#x60C5;&#x51B5; &#x6A21;&#x62DF;linux&#x547D;&#x4EE4; df &#xFF08;2011.3.24&#x4FEE;&#x6B63;&#xFF09;</title>
+      <link>http://leaveboy.github.com/blog/2009/10/10/statfs%E8%8E%B7%E5%BE%97%E7%A1%AC%E7%9B%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5-%E6%A8%A1%E6%8B%9Flinux%E5%91%BD%E4%BB%A4-df-2011-3-24%E4%BF%AE%E6%AD%A3</link>
+      <pubDate>2009-10-10</pubDate>
+      <description>statfs&#x83B7;&#x5F97;&#x786C;&#x76D8;&#x4F7F;&#x7528;&#x60C5;&#x51B5;</description>
+    </item>
+    <item>
+      <title>&#x4F7F;&#x7528; memleak &#x68C0;&#x67E5;&#x548C;&#x8C03;&#x8BD5;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;</title>
+      <link>http://leaveboy.github.com/blog/2008/11/26/%E4%BD%BF%E7%94%A8-memleak-%E6%A3%80%E6%9F%A5%E5%92%8C%E8%B0%83%E8%AF%95%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F</link>
+      <pubDate>2008-11-26</pubDate>
+      <description>&#x5D4C;&#x5165;&#x5F0F;&#x7A0B;&#x5E8F;&#x8C03;&#x8BD5;&#x5229;&#x5668;</description>
+    </item>
+    <item>
+      <title>A place nearby - Lene Marlin</title>
+      <link>http://leaveboy.github.com/blog/2008/02/28/a-place-nearby-lene-marlin</link>
+      <pubDate>2008-02-28</pubDate>
+      <description>&#x4E00;&#x9996;&#x5F88;&#x559C;&#x6B22;&#x7684;&#x6B4C;</description>
+    </item>
+    <item>
+      <title>&#x6742;&#x611F;</title>
+      <link>http://leaveboy.github.com/blog/2007/07/02/%E6%9D%82%E6%84%9F</link>
+      <pubDate>2007-07-02</pubDate>
+      <description>&#x5348;&#x591C;&#x7684;&#x4E00;&#x4E9B;&#x788E;&#x788E;&#x5FF5;</description>
+    </item>
+    <item>
+      <title>&#x4E0D;&#x7720;&#x591C;</title>
+      <link>http://leaveboy.github.com/blog/2007/06/02/%E4%B8%8D%E7%9C%A0%E5%A4%9C</link>
+      <pubDate>2007-06-02</pubDate>
+      <description>&#x6DF1;&#x5733;&#x590F;&#x591C;&#x65E0;&#x7535;&#xFF0C;&#x662F;&#x591A;&#x4E48;&#x6050;&#x6016;&#x7684;&#x4E00;&#x4EF6;&#x4E8B;&#x60C5;</description>
+    </item>
+    <item>
+      <title>&#x5348;&#x591C; &#x4E0D;&#x60F3;&#x7761;&#x89C9;</title>
+      <link>http://leaveboy.github.com/blog/2006/12/27/%E5%8D%88%E5%A4%9C-%E4%B8%8D%E6%83%B3%E7%9D%A1%E8%A7%89</link>
+      <pubDate>2006-12-27</pubDate>
+      <description>Lost Without You</description>
+    </item>
+  </channel>
+</rss>

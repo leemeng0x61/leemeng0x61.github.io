@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>写了一个类似prey功能的脚本</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="用perl实现prey的功能">
+    <meta name="author" content="Lee Meng">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap/css/bootstrap.min.css?0.7141840833367492" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/bootstrap/css/bootstrap-responsive.min.css?0.8619496575580816" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/css-social-buttons/zocial.stripped.css?0.5382937622733537" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/css/style.css?body=1?0.9929490488453897" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css?0.9817962983319479" type="text/css" rel="stylesheet" media="all">
+
+    
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/assets/media/favicon.ico">
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">星空™'s Blog</a>
+          <ul class="nav">
+              
+                <li><a href="/archive">归档</a></li>
+              
+              
+                <li><a href="/tags">标签</a></li>
+              
+              
+                <li><a href="/categories">分类</a></li>
+              
+              
+                <li><a href="/pages">页面</a></li>
+              
+              
+                <li><a href="/about">关于</a></li>
+              
+          </ul>
+            <ul class="nav pull-right social">
+              <li class="divider-vertical"></li>
+                <li>
+                  <a href="https://www.github.com/leaveboy" class="zocial github" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="https://profiles.google.com/" class="zocial googleplus icon" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="http://www.twitter.com/leaveboy" class="zocial twitter icon" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="http://weibo.com/leavemeng" class="zocial weibo icon" target="_blank"></a>
+                </li>
+                <li>
+                  <!--<a href="/" class="zocial rss icon" target="_blank"></a>-->
+                  <a href="http://feed.feedsky.com/leemeng" class="zocial rss icon" target="_blank"></a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="content">
+        <div class="page-header">
+  <h1>写了一个类似prey功能的脚本 </h1>
+  「 用perl实现prey的功能 」
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2011-08-24</strong>
+    </div>
+    <div class="content">
+      <p>在网上年到prey(就是传说中的黑客找回已丢电脑那个工具)感觉还不错,就是要注册,使用次数还有限制,所以打算自己折腾一下! </p>
+
+<h3 id="toc_0">lost 脚本放在/usr/bin 下,请自己加执行权限:</h3>
+
+<pre><code>chmod +x /usr/bin/lost
+</code></pre>
+
+<h3 id="toc_1">使用方法:</h3>
+
+<pre><code>lost -h
+</code></pre>
+
+<h3 id="toc_2">脚本源码lost:</h3>
+
+<pre><code>#!/bin/bash
+####################################################################
+# Lost create by leaveboy@gmail.com
+# Discription: when your pc lost,it can help you to find it!
+# License: GPLv3
+###################################################################)
+version=1.0
+
+scp_user=&#39;leaveboy&#39;  #user
+scp_server=&#39;216.194.70.6&#39; #an online server which pc could connect
+scp_path=&quot;/home/${scp_user}/&quot; #lost file path
+email=&#39;leaveboy@gmail.com&#39;  # address msg_file and image send to
+msg_file=&#39;/tmp/lostinfo&#39;
+
+show_version(){
+    echo &quot;Prey ${version}&quot;
+}
+show_usage(){
+    echo &quot;Prey ${version} &quot;
+    echo -e &quot;\nUsage: `basename $0` [options]&quot;
+    echo -e &quot;Options:&quot;
+    echo -e &quot;  -v | --version\tShow Current Version.&quot;
+    echo -e &quot;  -h | --help\t\tShow this message.\n&quot;
+    echo -e &quot;NOTICE&quot;
+    echo -e &quot;  This script runs under linux system and For Run this script you should have follow software:\
+        w3m scrot mutt ssh.\n&quot;
+    echo -e &quot;ADD/DELETE CRONTAB&quot;
+    echo -e &quot;  Run the follow command to add lost to crontab:&quot;
+    echo -e &quot;  \$(sudo crontab -l | grep -v lost; echo \&quot;*/20 * * * * /usr/bin/lost &gt; /var/log/lost.log\&quot;) | sudo crontab -&quot;
+    echo -e &quot;  Run the follow command to delete lost from crontab:&quot;
+    echo -e &quot;  \$(sudo crontab -l | grep -v lost) | sudo crontab -\n&quot;
+    echo -e &quot;ACTIVE/UNACTIVE&quot;
+    echo -e &quot;  Touch a file named \&quot;lost\&quot;under the scp_path of the scp_server to actived.&quot;
+    echo -e &quot;  remove the file \&quot;lost\&quot; under the scp_path of the scp_server to unactived.\n&quot;
+}
+
+until [ -z &quot;$1&quot; ]; do
+    case &quot;$1&quot; in
+        -v | --version )
+            show_version &amp;&amp; exit
+            ;;
+        -h | --help | * )
+            show_usage &amp;&amp; exit
+    esac
+    shift
+done
+
+send_mail(){
+    F=`scrot &#39;%F-%T_$wx$h_scrot.png&#39; -e  &#39;mv $f /tmp/ &amp; echo $f&#39;`
+    #you can add any what you want in here
+    `w3m http://www.ip138.com/ips8.asp  | grep &#39;来自&#39; &gt; ${msg_file}`    #网络地址
+    `uname -a &gt;&gt;  ${msg_file}`                                          #系统信息
+    `uptime   &gt;&gt;  ${msg_file}`                                          #启动信息
+    `ifconfig &gt;&gt;  ${msg_file}`                                          #网络信息
+    `ps ux   &gt;&gt;  ${msg_file}`                                           #用户进程
+    `more ${msg_file} | mutt -s &quot;lost&quot; ${email} -a /tmp/${F}`
+}
+#run condition you can change it and get some info from lost,of course,if it has!
+if [ -f &quot;/tmp/lost&quot; ]; then
+    send_mail &amp;&amp; exit
+else
+    `scp ${scp_user}@${scp_server}:${scp_path}/lost /tmp/lost`
+    if [ -f &quot;/tmp/lost&quot; ]; then
+        send_mail &amp;&amp; exit
+    fi
+fi
+</code></pre>
+
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#technology-ref">technology <span>16</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#code-ref">code <span>3</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/blog/2011/07/26/irssi-%2B-bitlbee" title="irssi + bitlbee">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/blog/2012/10/18/ubuntu-virtualbox-xp-%E4%BD%BF%E7%94%A8adb%E5%8F%97%E9%99%90%E9%97%AE%E9%A2%98" title="ubuntu virtualbox XP 使用adb受限问题">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+      <a><g:plusone></g:plusone>
+          <script type="text/javascript">window.___gcfg = {lang: 'en-US'};(function() {
+              var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+              po.src = 'https://apis.google.com/js/plusone.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+              })();
+          </script></a>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'leaveboy'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p align="center">如非特别声明，本博客所有文章皆为原创，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议</a>进行许可。</p>
+        <p align="center">&copy; Lee Meng 2013 Power by <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        <script type="text/javascript">
+          var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+          document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F585255a5e3d24bd2605b17df4b97e60b' type='text/javascript'%3E%3C/script%3E"));
+          </script></p>
+      </div>
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <!--<script>-->
+  <!--var _gaq=[['_setAccount','UA-38241924-1'],['_trackPageview']];-->
+  <!--(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];-->
+  <!--g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';-->
+  <!--s.parentNode.insertBefore(g,s)}(document,'script'));-->
+<!--</script>-->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38241924-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

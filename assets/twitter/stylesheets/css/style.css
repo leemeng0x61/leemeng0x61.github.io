@@ -1,0 +1,154 @@
+@import url(http://fonts.googleapis.com/css?family=Advent+Pro);
+@import url(http://fonts.googleapis.com/css?family=Oxygen);
+body {
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+/* Custom container */
+.container-narrow {
+  margin: 0 auto;
+  max-width: 80%;
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* The white background content wrapper */
+.content {
+  background-color: #fff;
+  padding: 20px;
+  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+  -webkit-border-radius: 0 0 6px 6px;
+     -moz-border-radius: 0 0 6px 6px;
+          border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+          box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+/* Page header tweaks */
+.page-header {
+  background-color: #f5f5f5;
+  padding: 20px 20px 10px;
+  margin: -20px -20px 20px;
+}
+
+/* posts index */
+.post > h3.title {
+  position:relative;
+  padding-top:10px;
+  border-top:3px solid #eee;
+}
+.post > h3.title span.date { 
+  position:absolute;
+  right:0;
+  font-size:0.9em;
+}
+.post > .more {
+  margin:10px 0;
+  text-align:left;
+}
+
+/* post-full*/
+.post-full .date {
+  margin-bottom:20px;
+  font-weight:bold;
+}
+
+/* tag_box */
+.tag_box {
+  list-style:none;
+  margin:0;
+  overflow:hidden;
+}
+.tag_box li {
+  line-height:28px;
+}
+.tag_box li i {
+  opacity:0.9;
+}
+.tag_box.inline li {
+  float:left;
+}
+.tag_box a {
+  padding: 3px 6px;
+  margin: 2px;
+  background: #eee;
+  color:#555;
+  border-radius: 3px;
+  text-decoration:none;
+  border:1px dashed #ccc;
+}
+.tag_box a span{
+  vertical-align:super;
+  font-size:0.8em;
+}
+.tag_box a:hover {
+  background-color:#e5e5e5;
+}
+.tag_box a.active {
+  background:#57A957;
+  border:1px solid #4C964D;
+  color:#FFF;
+}
+
+
+/* Zocial Overrides */
+/* line 254, ../_sass/_base.scss */
+.navbar a.zocial {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* line 260, ../_sass/_base.scss */
+.zocial.googleplus:focus,
+.zocial.googleplus:hover {
+  color: #e01d30 !important;
+}
+
+/* line 265, ../_sass/_base.scss */
+.zocial.twitter:focus,
+.zocial.twitter:hover {
+  color: #46c0fb !important;
+}
+
+/* line 271, ../_sass/_base.scss */
+.zocial.linkedin:focus,
+.zocial.linkedin:hover {
+  color: #50a1cb !important;
+}
+
+.zocial.rss:focus,
+.zocial.rss:hover {
+  color: #fb9d3a !important; 
+}
+
+.zocial.weibo:focus,
+.zocial.weibo:hover {
+  color: #FA8072 !important; 
+}
+
+/* Layout */
+/* line 2, ../_sass/_responsive.scss */
+.navbar {
+  margin-bottom: 0;
+}
+/* line 4, ../_sass/_responsive.scss */
+.navbar div.navbar-inner {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+}
+/* line 7, ../_sass/_responsive.scss */
+.navbar ul.social {
+  /* Hide social menu on low-res screens */
+}
+@media (min-width: 480px) and (max-width: 979px) {
+  /* line 7, ../_sass/_responsive.scss */
+  .navbar ul.social {
+    display: none !important;
+  }
+}

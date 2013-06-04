@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>在AWESOME上加入天气使用googleAPI字体weather.ttf</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="用weather.ttf给awesome润色">
+    <meta name="author" content="Lee Meng">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap/css/bootstrap.min.css?0.5063880393705608" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/bootstrap/css/bootstrap-responsive.min.css?0.215802319225742" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/css-social-buttons/zocial.stripped.css?0.850921549625767" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/css/style.css?body=1?0.8578737229827622" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css?0.6341435577882439" type="text/css" rel="stylesheet" media="all">
+
+    
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/assets/media/favicon.ico">
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">星空™'s Blog</a>
+          <ul class="nav">
+              
+                <li><a href="/archive">归档</a></li>
+              
+              
+                <li><a href="/tags">标签</a></li>
+              
+              
+                <li><a href="/categories">分类</a></li>
+              
+              
+                <li><a href="/pages">页面</a></li>
+              
+              
+                <li><a href="/about">关于</a></li>
+              
+          </ul>
+            <ul class="nav pull-right social">
+              <li class="divider-vertical"></li>
+                <li>
+                  <a href="https://www.github.com/leaveboy" class="zocial github" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="https://profiles.google.com/" class="zocial googleplus icon" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="http://www.twitter.com/leaveboy" class="zocial twitter icon" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="http://weibo.com/leavemeng" class="zocial weibo icon" target="_blank"></a>
+                </li>
+                <li>
+                  <!--<a href="/" class="zocial rss icon" target="_blank"></a>-->
+                  <a href="http://feed.feedsky.com/leemeng" class="zocial rss icon" target="_blank"></a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="content">
+        <div class="page-header">
+  <h1>在AWESOME上加入天气使用googleAPI字体weather.ttf </h1>
+  「 用weather.ttf给awesome润色 」
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2011-03-26</strong>
+    </div>
+    <div class="content">
+      <h3 id="toc_0">awesome rc.lua</h3>
+
+<p>这个脚本加入了词霸的屏幕取词，绑定PrtSc键抓图，还有天气显示！解决了前两天一直琢磨的字体天气问题！<br>
+上张现在桌面图：</p>
+
+<p><img src="http://leaveboy.is-programmer.com/user_files/leaveboy/Image/PrtSc/fullsc.png" alt="awesome desktop screenshot" title="screenshot"></p>
+
+<p>awesome 的配置文件 rc.lua</p>
+
+<pre><code>-- Standard awesome library
+require(&quot;awful&quot;)
+require(&quot;awful.autofocus&quot;)
+require(&quot;awful.rules&quot;)
+-- Theme handling library
+require(&quot;beautiful&quot;)
+require(&quot;vicious&quot;)
+-- Notification library
+require(&quot;naughty&quot;)
+
+-- Load Debian menu entries
+require(&quot;debian.menu&quot;)
+
+-- --- Variable definitions
+-- Themes define colours, icons, and wallpapers
+beautiful.init(&quot;/usr/share/awesome/themes/default/theme.lua&quot;)
+
+-- This is used later as the default terminal and editor to run.
+terminal = &quot;x-terminal-emulator&quot;
+editor = os.getenv(&quot;EDITOR&quot;) or &quot;editor&quot;
+editor_cmd = terminal .. &quot; -e &quot; .. editor
+
+-- Default modkey.
+-- Usually, Mod4 is the key with a logo between Control and Alt.
+-- If you do not like this or do not have such a key,
+-- I suggest you to remap Mod4 to another key using xmodmap or other tools.
+-- However, you can use another modifier like Mod1, but it may interact with others.
+modkey = &quot;Mod4&quot;
+
+-- Table of layouts to cover with awful.layout.inc, order matters.
+layouts =
+{
+    awful.layout.suit.floating,
+    awful.layout.suit.tile,
+    awful.layout.suit.tile.left,
+    awful.layout.suit.tile.bottom,
+    awful.layout.suit.tile.top,
+    awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal,
+    awful.layout.suit.spiral,
+    awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.max,
+    awful.layout.suit.max.fullscreen,
+    awful.layout.suit.magnifier
+}
+-- ___
+
+-- --- Tags
+-- Define a tag table which hold all screen tags.
+tags = {}
+for s = 1, screen.count() do
+    -- Each screen has its own tag table.
+    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+end
+-- ___
+
+-- --- Menu
+-- Create a laucher widget and a main menu
+myawesomemenu = {
+   { &quot;manual&quot;, terminal .. &quot; -e man awesome&quot; },
+   { &quot;edit config&quot;, editor_cmd .. &quot; &quot; .. awful.util.getdir(&quot;config&quot;) .. &quot;/rc.lua&quot; },
+   { &quot;restart&quot;, awesome.restart },
+   { &quot;quit&quot;, awesome.quit }
+}
+
+mymainmenu = awful.menu({ items = { { &quot;awesome&quot;, myawesomemenu, beautiful.awesome_icon },
+                                    { &quot;Debian&quot;, debian.menu.Debian_menu.Debian },
+                                    { &quot;open terminal&quot;, terminal }
+                                  }
+                        })
+
+mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
+                                     menu = mymainmenu })
+-- ___
+
+-- --- Wibox
+-- Create a textclock widget
+mytextclock = awful.widget.textclock({ align = &quot;right&quot; },&quot;%x %R&quot;,61)
+-------------------------------------leave--------------------------
+--Spacer
+spacer    = widget({ type = &quot;textbox&quot; })
+separator = widget({ type = &quot;textbox&quot; })
+spacer.text     = &quot; &quot;
+separator.text  = &quot;|&quot;
+--Cpu text
+cpu = widget({ type = &quot;textbox&quot; })
+vicious.register(cpu, vicious.widgets.cpu, &#39; &lt;span color=&quot;brown&quot;&gt;CPU1:&lt;/span&gt; &lt;span color=&quot;orange&quot;&gt;$2%&lt;/span&gt; &lt;span color=&quot;brown&quot;&gt;CPU2:&lt;/span&gt; &lt;span color=&quot;orange&quot;&gt;$3%&lt;/span&gt;&#39;, 1)
+--Cpu wigth
+cpu_g1 = awful.widget.graph()
+cpu_g1:set_width(50)
+cpu_g1:set_background_color(&quot;#333333&quot;)
+cpu_g1:set_color(&quot;#AEC6D8&quot;)
+cpu_g1:set_border_color(&quot;#0a0a0a&quot;)
+vicious.register(cpu_g1, vicious.widgets.cpu, &quot;$2&quot;, 1)
+
+cpu_g2 = awful.widget.graph()
+cpu_g2:set_width(50)
+cpu_g2:set_background_color(&quot;#333333&quot;)
+cpu_g2:set_color(&quot;#AEC6D8&quot;)
+cpu_g2:set_border_color(&quot;#0a0a0a&quot;)
+vicious.register(cpu_g2, vicious.widgets.cpu, &quot;$3&quot;, 1)
+--MPD
+mpd = widget({ type = &quot;textbox&quot; })
+vicious.register(mpd, vicious.widgets.mpd,
+    function (widget, args)
+            local ret_str = &#39; &lt;span color=&quot;brown&quot;&gt;NOW Playing:&lt;/span&gt;&#39;
+        if args[&quot;{state}&quot;] == &quot;Stop&quot; then
+            return ret_str .. &#39; &lt;span color=&quot;orange&quot;&gt; - &lt;/span&gt;&#39;
+        else
+            return ret_str .. &#39; &lt;span color=&quot;orange&quot;&gt;&#39;.. args[&quot;{Artist}&quot;]..&#39; - &#39;.. args[&quot;{Title}&quot;]..&#39;&lt;/span&gt;&#39;
+        end
+    end, 3)
+--Weather
+------------------------regex-------------------------
+function get_weather(con)
+    local s = &quot;&lt;current_conditions&gt;.*&lt;\/forecast_conditions&gt;&quot;
+    local i ,j = string.sub(con, string.find(con,s))
+    local s = &quot;\&quot;[a-z0-9A-Z%s:%%]*\&quot;&quot; 
+    local info
+    for word in string.gmatch(i, s) do
+            info = tostring(info)..&quot;\t&quot;..tostring(word) 
+    end
+    local i, j = string.gsub(info, &quot;\&quot;&quot;,&quot;&quot;)
+    local l = split(i,&quot;\t&quot;)
+    return l
+end
+
+------------------------split-------------------------
+function split(string, spt)
+    local find_index = 1
+    local spt_index = 1
+    local spt_arr = {}
+    while true do
+        local find_end = string.find(string, spt, find_index)
+        if not find_end then
+            spt_arr[spt_index] = string.sub(string, find_index, string.len(string))
+            break
+        end
+        spt_arr[spt_index] = string.sub(string, find_index, find_end - 1)
+        find_index = find_end + string.len(spt)
+        spt_index = spt_index + 1
+    end
+    return spt_arr
+end
+
+------------------------main-------------------------
+weathericon = widget({ type = &quot;imagebox&quot; })
+weathericon.image = image(beautiful.widget_cloud)
+weather = widget({type = &quot;textbox&quot; })
+vicious.register(weather, vicious.widgets.weather,
+ function (widget, args)
+    local http = require(&quot;socket.http&quot;)
+    local night = {[&quot;e&quot;]=&#39;o&#39;,[&quot;f&quot;]=&#39;p&#39;,[&quot;v&quot;]=&#39;v&#39;,[&quot;j&quot;]=&#39;t&#39;,[&quot;k&quot;]=&#39;u&#39;,[&quot;h&quot;]=&#39;r&#39;,[&quot;g&quot;]=&#39;q&#39;,[&quot;c&quot;]=&#39;m&#39;,[&quot;b&quot;]=&#39;l&#39;,[&quot;d&quot;]=&#39;n&#39;,[&quot;a&quot;]=&#39;a&#39;,[&quot;N&quot;]=&#39;N&#39;,[&quot;w&quot;]=&#39;w&#39;}
+    local weather = {[&quot;Sandstorm&quot;]=&#39;e&#39;,[&quot;Duststorm&quot;]=&#39;e&#39;,[&quot;Sand&quot;]=&#39;e&#39;,[&quot;Dust&quot;]=&#39;e&#39;,[&quot;Fog&quot;]=&#39;e&#39;,[&quot;Mist&quot;]=&#39;e&#39;,[&quot;Smoke&quot;]=&#39;e&#39;,[&quot;Haze&quot;]=&#39;e&#39;,[&quot;Overcast&quot;]=&#39;e&#39;,--&#39;e o&#39; 9th 阴霾
+    [&quot;Thunderstorms&quot;]=&#39;f&#39;,[&quot;Thundershowers&quot;]=&#39;f&#39;,[&quot;Storm&quot;]=&#39;f&#39;,[&quot;Lightning&quot;]=&#39;f&#39;,--&#39;f p&#39; 13th 闪电
+    [&quot;Hail&quot;]=&#39;v&#39;,--&#39;v&#39; 14th 冰雹
+    [&quot;Blowing Snow&quot;]=&#39;j&#39;,[&quot;Blizzard&quot;]=&#39;j&#39;,[&quot;Snowdrift&quot;]=&#39;j&#39;,[&quot;Snowstorm&quot;]=&#39;j&#39;,[&quot;Snow&quot;]=&#39;j&#39;,[&quot;Heavy Snow&quot;]=&#39;j&#39;,[&quot;Snowfall&quot;]=&#39;j&#39;, --&#39;j t&#39; 21th 大雪
+    [&quot;Snow Showers&quot;]=&#39;k&#39;,[&quot;Flurries&quot;]=&#39;k&#39;,[&quot;Light Snow&quot;]=&#39;k&#39;,[&quot;Sleet&quot;]=&#39;k&#39;,--&#39;k u&#39; 25th 小雪
+    [&quot;Showers&quot;]=&#39;h&#39;,[&quot;Heavy Showers&quot;]=&#39;h&#39;,[&quot;Rainshower&quot;]=&#39;h&#39;,[&quot;Rain&quot;]=&#39;h&#39;,--&#39;h r&#39; 29th 大雨
+    [&quot;Occasional Showers&quot;]=&#39;g&#39;,[&quot;Scattered Showers&quot;]=&#39;g&#39;,[&quot;Isolated Showers&quot;]=&#39;g&#39;,[&quot;Light Showers&quot;]=&#39;g&#39;,[&quot;Freezing Rain&quot;]=&#39;g&#39;,[&quot;Drizzle&quot;]=&#39;g&#39;,[&quot;Light Rain&quot;]=&#39;g&#39;,--&#39;g q&#39; 36th 小雨
+    [&quot;Sunny Interval&quot;]=&#39;c&#39;,[&quot;No Rain&quot;]=&#39;c&#39;,[&quot;Clearing&quot;]=&#39;c&#39;,--&#39;c m&#39; 39th 多云见晴
+    [&quot;Sunny Period&quot;]=&#39;b&#39;,[&quot;Partly Cloudy&quot;]=&#39;b&#39;,[&quot;Partly Bright&quot;]=&#39;b&#39;,[&quot;Mild&quot;]=&#39;b&#39;,--&#39;b l&#39; 43th 晴见多云
+    [&quot;Cloudy&quot;]=&#39;d&#39;,[&quot;Mostly Cloudy&quot;]=&#39;d&#39;,--&#39;d, n&#39; 45th 多云
+    [&quot;Bright&quot;]=&#39;a&#39;,[&quot;Sunny&quot;]=&#39;a&#39;,[&quot;Fair&quot;]=&#39;a&#39;, --&#39;a&#39; 48th 白天晴天
+    [&quot;Fine&quot;]=&#39;N&#39;,[&quot;Clear&quot;]=&#39;N&#39;,--&#39;N&#39; 50th 晚间晴天
+    [&quot;Windy&quot;]=&#39;w&#39;,[&quot;Squall&quot;]=&#39;w&#39;,[&quot;Stormy&quot;]=&#39;w&#39;,[&quot;Chill&quot;]=&#39;w&#39;,[&quot;Gale&quot;]=&#39;w&#39;--&#39;w&#39; 55th 风
+}
+    local url = &quot;http://www.google.com/ig/api?weather=chengdu&quot;
+    local con, ret = http.request(url)
+    if con == nil then
+        return nil
+    else
+        local l =   get_weather(con)
+        local font_weather = weather[l[2]]
+--[[        if os.date(&quot;%H&quot;,os.time())&gt;&quot;17&quot; then
+            font_weather = night[font_weather]
+        end
+        --]]
+        local temp_c = &#39;y&#39;
+        if l[4] &gt; &quot;28&quot; then
+            temp_c = &#39;z&#39;
+        elseif l[4] &lt; &quot;15&quot; then
+            temp_c = &#39;x&#39;
+        end
+        return &#39;&lt;span font=&quot;Weather regular 16&quot; color=&quot;#FFFF00&quot;&gt;&#39;..font_weather..&#39;&lt;/span&gt;&lt;span color=&quot;orange&quot;&gt; &#39;..l[4]..&#39;°C&lt;/span&gt;&#39;
+    end
+ end
+
+--&quot;${sky} ${tempc} °C&quot;
+, 1800,&quot;ZUUU&quot;)
+
+--UPTIME
+uptime = widget({ type = &quot;textbox&quot; })
+vicious.register(uptime, vicious.widgets.uptime,&#39; &lt;span color=&quot;brown&quot;&gt;UPTIME:&lt;/span&gt; &lt;span color=&quot;orange&quot;&gt;$2:$3&lt;/span&gt;&#39;, 61)
+--MEM
+mem = widget({ type = &quot;textbox&quot; })
+vicious.register(mem, vicious.widgets.mem, &#39; &lt;span color=&quot;brown&quot;&gt;MEM:&lt;/span&gt; &lt;span color=&quot;orange&quot;&gt;$1% $2MB&lt;/span&gt; &lt;span color=&quot;brown&quot;&gt;SWAP:&lt;/span&gt; &lt;span color=&quot;orange&quot;&gt;$5% $6MB&lt;/span&gt;&#39;, 1)
+--FS
+fs = widget({ type = &quot;textbox&quot; })
+vicious.register(fs, vicious.widgets.fs, &#39; &lt;span color=&quot;brown&quot;&gt;FS:&lt;/span&gt; &lt;span color=&quot;orange&quot;&gt;${/ used_gb}GB ${/ used_p}%&lt;/span&gt;&#39;, 5)
+--DIO
+dio = widget({ type = &quot;textbox&quot; })
+vicious.register(dio, vicious.widgets.dio, &#39; &lt;span color=&quot;brown&quot;&gt;IO:&lt;/span&gt; &lt;span color=&quot;orange&quot;&gt;R:${read_kb}KB W:${write_kb}KB&lt;/span&gt;&#39;, 1, &quot;sda&quot;)
+--NET
+net = widget({ type = &quot;textbox&quot; })
+vicious.register(net, vicious.widgets.net, &#39; &lt;span color=&quot;brown&quot;&gt;NET:&lt;/span&gt; &lt;span color=&quot;orange&quot;&gt;${eth0 down_kb}KB/${eth0 up_kb}KB&lt;/span&gt;&#39;, 1)
+-------------------------------------leave--------------------------
+-- Create a systray
+mysystray = widget({ type = &quot;systray&quot; })
+
+-- Create a wibox for each screen and add it
+mywibox_top = {}
+mywibox_bottom = {}
+mypromptbox = {}
+mylayoutbox = {}
+mytaglist = {}
+mytaglist.buttons = awful.util.table.join(
+                    awful.button({ }, 1, awful.tag.viewonly),
+                    awful.button({ modkey }, 1, awful.client.movetotag),
+                    awful.button({ }, 3, awful.tag.viewtoggle),
+                    awful.button({ modkey }, 3, awful.client.toggletag),
+                    awful.button({ }, 4, awful.tag.viewnext),
+                    awful.button({ }, 5, awful.tag.viewprev)
+                    )
+mytasklist = {}
+mytasklist.buttons = awful.util.table.join(
+                     awful.button({ }, 1, function (c)
+                                              if not c:isvisible() then
+                                                  awful.tag.viewonly(c:tags()[1])
+                                              end
+                                              client.focus = c
+                                              c:raise()
+                                          end),
+                     awful.button({ }, 3, function ()
+                                              if instance then
+                                                  instance:hide()
+                                                  instance = nil
+                                              else
+                                                  instance = awful.menu.clients({ width=250 })
+                                              end
+                                          end),
+                     awful.button({ }, 4, function ()
+                                              awful.client.focus.byidx(1)
+                                              if client.focus then client.focus:raise() end
+                                          end),
+                     awful.button({ }, 5, function ()
+                                              awful.client.focus.byidx(-1)
+                                              if client.focus then client.focus:raise() end
+                                          end))
+
+for s = 1, screen.count() do
+    -- Create a promptbox for each screen
+    mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
+    -- Create an imagebox widget which will contains an icon indicating which layout we&#39;re using.
+    -- We need one layoutbox per screen.
+    mylayoutbox[s] = awful.widget.layoutbox(s)
+    mylayoutbox[s]:buttons(awful.util.table.join(
+                           awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
+                           awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end),
+                           awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
+                           awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
+    -- Create a taglist widget
+    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)
+
+    -- Create a tasklist widget
+    mytasklist[s] = awful.widget.tasklist(function(c)
+                                              return awful.widget.tasklist.label.currenttags(c, s)
+                                          end, mytasklist.buttons)
+
+    -- Create the wibox
+    mywibox_top[s] = awful.wibox({ position = &quot;top&quot;, screen = s })
+    mywibox_bottom[s] = awful.wibox({ position = &quot;bottom&quot;, screen = s })
+    -- Add widgets to the wibox - order matters
+        -- top
+         mywibox_top[s].widgets = {
+        {
+            mylauncher,
+            mytaglist[s],
+            mypromptbox[s],
+            layout = awful.widget.layout.horizontal.leftright
+        },
+        mylayoutbox[s],
+        mytextclock,
+        s == 1 and mysystray or nil,
+                spacer,
+                uptime,
+            weather,
+                spacer,
+                weathericon,
+        mytasklist[s],
+        layout = awful.widget.layout.horizontal.rightleft
+    }
+        --bottom
+    mywibox_bottom[s].widgets = {
+            {
+                fs,
+                separator,
+                mem,
+                separator,
+                dio,
+                separator,
+                net,
+                separator,
+                mpd,
+                layout = awful.widget.layout.horizontal.leftright
+            },
+                cpu_g1.widget,
+                spacer,
+                cpu_g2.widget,
+                spacer,
+        layout = awful.widget.layout.horizontal.rightleft
+    }
+end
+-- ___
+
+-- --- Mouse bindings
+root.buttons(awful.util.table.join(
+    awful.button({ }, 3, function () mymainmenu:toggle() end),
+    awful.button({ }, 4, awful.tag.viewnext),
+    awful.button({ }, 5, awful.tag.viewprev)
+))
+-- ___
+
+-- --- Key bindings
+globalkeys = awful.util.table.join(
+    awful.key({ modkey,           }, &quot;Left&quot;,   awful.tag.viewprev       ),
+    awful.key({ modkey,           }, &quot;Right&quot;,  awful.tag.viewnext       ),
+    awful.key({ modkey,           }, &quot;Escape&quot;, awful.tag.history.restore),
+
+    awful.key({ modkey,           }, &quot;j&quot;,
+        function ()
+            awful.client.focus.byidx( 1)
+            if client.focus then client.focus:raise() end
+        end),
+    awful.key({ modkey,           }, &quot;k&quot;,
+        function ()
+            awful.client.focus.byidx(-1)
+            if client.focus then client.focus:raise() end
+        end),
+    awful.key({ modkey,           }, &quot;w&quot;, function () mymainmenu:show({keygrabber=true}) end),
+        -- Unminimize clients
+        awful.key({ modkey, &quot;Control&quot; }, &quot;m&quot;,
+        function ()
+            local allclients = client.get(mouse.screen)
+            for _, c in ipairs(allclients) do
+                if c.minimized and c:tags()[mouse.screen] == awful.tag.selected(mouse.screen) then
+                    c.minimized = false
+                    client.focus = c
+                    c:raise()
+                    return
+                end
+            end
+        end),
+    -- Layout manipulation
+    awful.key({ modkey, &quot;Shift&quot;   }, &quot;j&quot;, function () awful.client.swap.byidx(  1)    end),
+    awful.key({ modkey, &quot;Shift&quot;   }, &quot;k&quot;, function () awful.client.swap.byidx( -1)    end),
+    awful.key({ modkey, &quot;Control&quot; }, &quot;j&quot;, function () awful.screen.focus_relative( 1) end),
+    awful.key({ modkey, &quot;Control&quot; }, &quot;k&quot;, function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey,           }, &quot;u&quot;, awful.client.urgent.jumpto),
+        -- 截图 ---3
+        awful.key({ }, &quot;Print&quot;, function ()
+            -- 截图：全屏
+            awful.util.spawn(&quot;zsh -c &#39;cd ~/tmpfs&amp;&amp;scrot fullsc.png&#39;&quot;)
+            os.execute(&quot;sleep .5&quot;)
+            naughty.notify({title=&quot;截图&quot;, text=&quot;全屏截图已保存。&quot;})
+        end),
+        awful.key({ &quot;Shift&quot;, }, &quot;Print&quot;, function ()
+            -- 截图：当前窗口
+            awful.util.spawn(&quot;zsh -c &#39;cd ~/tmpfs&amp;&amp;scrot -u&#39;&quot;)
+            os.execute(&quot;sleep .5&quot;)
+            naughty.notify({title=&quot;截图&quot;, text=&quot;当前窗口截图已保存。&quot;})
+        end),
+
+        -- ---3 sdcv
+        awful.key({ modkey }, &quot;d&quot;, function ()
+            local f = io.popen(&quot;xsel -p&quot;)
+            local new_word = f:read(&quot;*a&quot;)
+            f:close()
+
+            if frame ~= nil then
+                naughty.destroy(frame)
+                frame = nil
+                if old_word == new_word then
+                    return
+                end
+            end
+            old_word = new_word
+
+            local fc = &quot;&quot;
+            local f = io.popen(&quot;sdcv -n --utf8-output -u &#39;stardict1.3英汉辞典&#39; &quot;..new_word)
+            for line in f:lines() do
+                fc = fc .. line .. &#39;\n&#39;
+            end
+            f:close()
+            frame = naughty.notify({ text = fc, timeout = 5, width = 320 })
+        end),
+    awful.key({ modkey,           }, &quot;Tab&quot;,
+        function ()
+            awful.client.focus.history.previous()
+            if client.focus then
+                client.focus:raise()
+            end
+        end),
+
+    -- Standard program
+    awful.key({ modkey,           }, &quot;Return&quot;, function () awful.util.spawn(terminal) end),
+    awful.key({ modkey, &quot;Control&quot; }, &quot;r&quot;, awesome.restart),
+    awful.key({ modkey, &quot;Shift&quot;   }, &quot;q&quot;, awesome.quit),
+
+    awful.key({ modkey,           }, &quot;l&quot;,     function () awful.tag.incmwfact( 0.05)    end),
+    awful.key({ modkey,           }, &quot;h&quot;,     function () awful.tag.incmwfact(-0.05)    end),
+    awful.key({ modkey, &quot;Shift&quot;   }, &quot;h&quot;,     function () awful.tag.incnmaster( 1)      end),
+    awful.key({ modkey, &quot;Shift&quot;   }, &quot;l&quot;,     function () awful.tag.incnmaster(-1)      end),
+    awful.key({ modkey, &quot;Control&quot; }, &quot;h&quot;,     function () awful.tag.incncol( 1)         end),
+    awful.key({ modkey, &quot;Control&quot; }, &quot;l&quot;,     function () awful.tag.incncol(-1)         end),
+    awful.key({ modkey,           }, &quot;space&quot;, function () awful.layout.inc(layouts,  1) end),
+    awful.key({ modkey, &quot;Shift&quot;   }, &quot;space&quot;, function () awful.layout.inc(layouts, -1) end),
+
+    -- Prompt
+    awful.key({ modkey },            &quot;r&quot;,     function () mypromptbox[mouse.screen]:run() end),
+
+    awful.key({ modkey }, &quot;x&quot;,
+              function ()
+                  awful.prompt.run({ prompt = &quot;Run Lua code: &quot; },
+                  mypromptbox[mouse.screen].widget,
+                  awful.util.eval, nil,
+                  awful.util.getdir(&quot;cache&quot;) .. &quot;/history_eval&quot;)
+              end)
+)
+
+clientkeys = awful.util.table.join(
+    awful.key({ modkey,           }, &quot;f&quot;,      function (c) c.fullscreen = not c.fullscreen  end),
+    awful.key({ modkey, &quot;Shift&quot;   }, &quot;c&quot;,      function (c) c:kill()                         end),
+    awful.key({ modkey, &quot;Control&quot; }, &quot;space&quot;,  awful.client.floating.toggle                     ),
+    awful.key({ modkey, &quot;Control&quot; }, &quot;Return&quot;, function (c) c:swap(awful.client.getmaster()) end),
+    awful.key({ modkey,           }, &quot;o&quot;,      awful.client.movetoscreen                        ),
+    awful.key({ modkey, &quot;Shift&quot;   }, &quot;r&quot;,      function (c) c:redraw()                       end),
+    awful.key({ modkey,           }, &quot;t&quot;,      function (c) c.ontop = not c.ontop            end),
+    awful.key({ modkey,           }, &quot;n&quot;,      function (c) c.minimized = not c.minimized    end),
+    awful.key({ modkey,           }, &quot;m&quot;,
+        function (c)
+            c.maximized_horizontal = not c.maximized_horizontal
+            c.maximized_vertical   = not c.maximized_vertical
+        end)
+)
+
+-- Compute the maximum number of digit we need, limited to 9
+keynumber = 0
+for s = 1, screen.count() do
+   keynumber = math.min(9, math.max(#tags[s], keynumber));
+end
+
+-- Bind all key numbers to tags.
+-- Be careful: we use keycodes to make it works on any keyboard layout.
+-- This should map on the top row of your keyboard, usually 1 to 9.
+for i = 1, keynumber do
+    globalkeys = awful.util.table.join(globalkeys,
+        awful.key({ modkey }, &quot;#&quot; .. i + 9,
+                  function ()
+                        local screen = mouse.screen
+                        if tags[screen][i] then
+                            awful.tag.viewonly(tags[screen][i])
+                        end
+                  end),
+        awful.key({ modkey, &quot;Control&quot; }, &quot;#&quot; .. i + 9,
+                  function ()
+                      local screen = mouse.screen
+                      if tags[screen][i] then
+                          awful.tag.viewtoggle(tags[screen][i])
+                      end
+                  end),
+        awful.key({ modkey, &quot;Shift&quot; }, &quot;#&quot; .. i + 9,
+                  function ()
+                      if client.focus and tags[client.focus.screen][i] then
+                          awful.client.movetotag(tags[client.focus.screen][i])
+                      end
+                  end),
+        awful.key({ modkey, &quot;Control&quot;, &quot;Shift&quot; }, &quot;#&quot; .. i + 9,
+                  function ()
+                      if client.focus and tags[client.focus.screen][i] then
+                          awful.client.toggletag(tags[client.focus.screen][i])
+                      end
+                  end))
+end
+
+clientbuttons = awful.util.table.join(
+    awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
+    awful.button({ modkey }, 1, awful.mouse.client.move),
+    awful.button({ modkey }, 3, awful.mouse.client.resize))
+
+-- Set keys
+root.keys(globalkeys)
+-- ___
+
+-- --- Rules
+awful.rules.rules = {
+    -- All clients will match this rule.
+    { rule = { },
+      properties = { border_width = beautiful.border_width,
+                     border_color = beautiful.border_normal,
+                     focus = true,
+                     keys = clientkeys,
+                     buttons = clientbuttons } },
+    { rule = { class = &quot;MPlayer&quot; },
+      properties = { floating = true } },
+    { rule = { class = &quot;pinentry&quot; },
+      properties = { floating = true } },
+    { rule = { class = &quot;gimp&quot; },
+      properties = { floating = true } },
+    -- Set Firefox to always map on tags number 2 of screen 1.
+    -- { rule = { class = &quot;Firefox&quot; },
+    --   properties = { tag = tags[1][2] } },
+}
+-- ___
+
+-- --- Signals
+-- Signal function to execute when a new client appears.
+client.add_signal(&quot;manage&quot;, function (c, startup)
+    -- Add a titlebar
+    -- awful.titlebar.add(c, { modkey = modkey })
+
+    -- Enable sloppy focus
+    c:add_signal(&quot;mouse::enter&quot;, function(c)
+        if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
+            and awful.client.focus.filter(c) then
+            client.focus = c
+        end
+    end)
+
+    if not startup then
+        -- Set the windows at the slave,
+        -- i.e. put it at the end of others instead of setting it master.
+        -- awful.client.setslave(c)
+
+        -- Put windows in a smart way, only if they does not set an initial position.
+        if not c.size_hints.user_position and not c.size_hints.program_position then
+            awful.placement.no_overlap(c)
+            awful.placement.no_offscreen(c)
+        end
+    end
+end)
+
+client.add_signal(&quot;focus&quot;, function(c) c.border_color = beautiful.border_focus end)
+client.add_signal(&quot;unfocus&quot;, function(c) c.border_color = beautiful.border_normal end)
+-- ___
+floatapps =
+{
+    [&quot;MPlayer&quot;] = true,
+    [&quot;gimp&quot;] = true,
+    [&quot;smplayer&quot;] = true,
+    [&quot;mocp&quot;] = true,
+    [&quot;Codeblocks&quot;] = true,
+    [&quot;Dialog&quot;] = true,
+    [&quot;Download&quot;] = true,
+    [&quot;empathy&quot;] = true,
+}
+
+-- 把指定的程序自动移动到某个特定的屏幕的某个tag上面
+apptags =
+{
+    [&quot;smplayer&quot;] = { screen = 1, tag = 7 },
+    [&quot;amarokapp&quot;] = { screen = 1, tag = 8 },
+    [&quot;VirtualBox&quot;] = { screen = 1, tag = 9 },
+    [&quot;Firefox&quot;] = { screen = 1, tag = 1},
+    [&quot;Thunderbird-bin&quot;] = { screen = 1, tag = 7 },
+    [&quot;Linux-fetion&quot;] = { screen = 1, tag = 6 },
+}
+</code></pre>
+
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#technology-ref">technology <span>16</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#awesome-ref">awesome <span>4</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/blog/2011/03/25/awesome-%E8%84%9A%E6%9C%AC%E4%B8%AD%E5%8A%A0%E5%85%A5%E5%A4%A9%E6%B0%94" title="awesome 脚本中加入天气">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/blog/2011/04/15/%E5%85%B3%E4%BA%8Emutt%E5%8F%91%E9%80%81%E4%B8%AD%E6%96%87%E9%99%84%E4%BB%B6-foxmail-outlook%E6%8E%A5%E5%8F%97%E4%B8%8D%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98" title="关于mutt发送中文附件，foxmail，outlook接受不到的问题">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+      <a><g:plusone></g:plusone>
+          <script type="text/javascript">window.___gcfg = {lang: 'en-US'};(function() {
+              var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+              po.src = 'https://apis.google.com/js/plusone.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+              })();
+          </script></a>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'leaveboy'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p align="center">如非特别声明，本博客所有文章皆为原创，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议</a>进行许可。</p>
+        <p align="center">&copy; Lee Meng 2013 Power by <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        <script type="text/javascript">
+          var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+          document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F585255a5e3d24bd2605b17df4b97e60b' type='text/javascript'%3E%3C/script%3E"));
+          </script></p>
+      </div>
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <!--<script>-->
+  <!--var _gaq=[['_setAccount','UA-38241924-1'],['_trackPageview']];-->
+  <!--(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];-->
+  <!--g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';-->
+  <!--s.parentNode.insertBefore(g,s)}(document,'script'));-->
+<!--</script>-->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38241924-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

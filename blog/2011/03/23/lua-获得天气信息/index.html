@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>lua 获得天气信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="lua demo 程序">
+    <meta name="author" content="Lee Meng">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap/css/bootstrap.min.css?0.4889448077009071" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/bootstrap/css/bootstrap-responsive.min.css?0.5808458106217806" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/css-social-buttons/zocial.stripped.css?0.7205109711755332" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/css/style.css?body=1?0.07047012837021349" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css?0.5313794460012675" type="text/css" rel="stylesheet" media="all">
+
+    
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/assets/media/favicon.ico">
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">星空™'s Blog</a>
+          <ul class="nav">
+              
+                <li><a href="/archive">归档</a></li>
+              
+              
+                <li><a href="/tags">标签</a></li>
+              
+              
+                <li><a href="/categories">分类</a></li>
+              
+              
+                <li><a href="/pages">页面</a></li>
+              
+              
+                <li><a href="/about">关于</a></li>
+              
+          </ul>
+            <ul class="nav pull-right social">
+              <li class="divider-vertical"></li>
+                <li>
+                  <a href="https://www.github.com/leaveboy" class="zocial github" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="https://profiles.google.com/" class="zocial googleplus icon" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="http://www.twitter.com/leaveboy" class="zocial twitter icon" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="http://weibo.com/leavemeng" class="zocial weibo icon" target="_blank"></a>
+                </li>
+                <li>
+                  <!--<a href="/" class="zocial rss icon" target="_blank"></a>-->
+                  <a href="http://feed.feedsky.com/leemeng" class="zocial rss icon" target="_blank"></a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="content">
+        <div class="page-header">
+  <h1>lua 获得天气信息 </h1>
+  「 lua demo 程序 」
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>2011-03-23</strong>
+    </div>
+    <div class="content">
+      <p>其实开始是想做在awesome statbar显示天气的（字体图标的那种），现在终端获得天气已经写好！</p>
+
+<p>明天再着手搞字体的转换问题!</p>
+
+<pre><code>#!/usr/bin/lua5.1
+local http = require(&quot;socket.http&quot;)
+------------------------split-------------------------
+function get_weather(con)
+    local s = &quot;&lt;b&gt;.*&lt;br\/&gt;&lt;br\/&gt;&quot;
+    local i ,j = string.sub(con, string.find(con,s))
+    local i, n = string.gsub(i, &quot;&lt;br\/&gt;&lt;br\/&gt;&lt;b&gt;&quot;,&quot;\n&quot;)
+    local i, j = string.gsub(i, &quot;&lt;br\/&gt;&quot;,&quot;\t&quot;)
+    local i, j = string.gsub(i, &quot;&lt;\/b&gt;&quot;,&quot;&quot;)
+    local i, j = string.gsub(i, &quot;&lt;b&gt;&quot;,&quot;&quot;)
+    local i, j = string.gsub(i, &quot;℃&quot;,&quot;°C&quot;)
+    local i, j = string.gsub(i, &quot;～&quot;,&quot;-&quot;)
+    --  print(i,n+1)--所有天气
+    local list_n = split(i, &quot;\n&quot;)
+    local list_t = split(list_n[1],&quot;\t&quot;)
+    return list_t
+end
+
+------------------------split-------------------------
+function split(string, spt)
+    local find_index = 1
+    local spt_index = 1
+    local spt_arr = {}
+    while true do
+        local find_end = string.find(string, spt, find_index)
+        if not find_end then
+            spt_arr[spt_index] = string.sub(string, find_index, string.len(string))
+            break
+        end
+        spt_arr[spt_index] = string.sub(string, find_index, find_end - 1)
+        find_index = find_end + string.len(spt)
+        spt_index = spt_index + 1
+    end
+    return spt_arr
+end
+
+------------------------main-------------------------
+function main()
+    local url = &quot;http://qq.ip138.com/weather/sichuan/chengdu.wml&quot;
+    local con, ret = http.request(url)
+    if con == nil then
+        print (&quot;nil&quot;)
+    else
+    --  print (con)
+        local list_t =  get_weather(con)
+        print (&#39;今天天气:&#39;,list_t[1],list_t[2],list_t[3],list_t[4])
+    end
+end
+
+main()
+</code></pre>
+
+    </div>
+    <ul class="tag_box inline">
+      <li><i class="icon-folder-open"></i></li>
+      <li>
+        <a href="/categories#technology-ref">technology <span>16</span></a>
+      </li>
+    </ul>
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      <li>
+        <a href="/tags#lua-ref">lua <span>2</span></a>
+      </li>
+    </ul>
+    <hr>
+    <div class="pagination">
+      <ul>
+          <li class="prev"><a href="/blog/2011/01/28/%E5%85%B3%E4%BA%8Eawesome%E8%AE%BE%E7%BD%AE%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98" title="关于awesome设置时间格式的问题！">&larr; Previous</a></li>
+
+          <li><a href="/archive">Archive</a></li>
+
+          <li class="next"><a href="/blog/2011/03/24/lua%E9%80%9A%E8%BF%87google%E7%9A%84%E5%A4%A9%E6%B0%94api%E8%8E%B7%E5%BE%97%E5%A4%A9%E6%B0%94" title="lua通过google的天气api获得天气">Next &rarr;</a></li>
+      </ul>
+    </div>
+    <hr>
+      <a><g:plusone></g:plusone>
+          <script type="text/javascript">window.___gcfg = {lang: 'en-US'};(function() {
+              var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+              po.src = 'https://apis.google.com/js/plusone.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+              })();
+          </script></a>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'leaveboy'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p align="center">如非特别声明，本博客所有文章皆为原创，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议</a>进行许可。</p>
+        <p align="center">&copy; Lee Meng 2013 Power by <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        <script type="text/javascript">
+          var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+          document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F585255a5e3d24bd2605b17df4b97e60b' type='text/javascript'%3E%3C/script%3E"));
+          </script></p>
+      </div>
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <!--<script>-->
+  <!--var _gaq=[['_setAccount','UA-38241924-1'],['_trackPageview']];-->
+  <!--(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];-->
+  <!--g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';-->
+  <!--s.parentNode.insertBefore(g,s)}(document,'script'));-->
+<!--</script>-->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38241924-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

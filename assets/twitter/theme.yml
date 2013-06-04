@@ -1,0 +1,32 @@
+{
+  "exclude" : [
+    "layouts/*",
+    "stylesheets/_sass/*",
+    '*README.md',
+    '*sample.html'
+  ],
+  
+  "stylesheets" : {
+    "default" : [
+      "bootstrap/css/bootstrap.min.css",
+      "bootstrap/css/bootstrap-responsive.min.css",
+      "css-social-buttons/zocial.stripped.css",
+      "css/style.css?body=1"
+    ],
+   
+    "widgets" : {
+      "google_prettify" : "twitter-bootstrap.css"
+    }
+    
+  },
+
+  "javascripts" : {
+    "default" : [
+    ]
+  },
+  
+  "manifest" : {
+    "author" : "Jacob Thornton and Mark Otto",
+    "website" : "http://twitter.github.com/bootstrap"
+  }
+}

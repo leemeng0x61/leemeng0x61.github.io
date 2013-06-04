@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Lee Meng's Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A man's dreams are index to his greatness">
+    <meta name="author" content="Lee Meng">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap/css/bootstrap.min.css?0.8371333041470777" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/bootstrap/css/bootstrap-responsive.min.css?0.5348715977567314" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/css-social-buttons/zocial.stripped.css?0.8043538476738673" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/css/style.css?body=1?0.24693116199609466" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css?0.9856849022364694" type="text/css" rel="stylesheet" media="all">
+
+    
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/assets/media/favicon.ico">
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">星空™'s Blog</a>
+          <ul class="nav">
+              
+                <li><a href="/archive">归档</a></li>
+              
+              
+                <li><a href="/tags">标签</a></li>
+              
+              
+                <li><a href="/categories">分类</a></li>
+              
+              
+                <li><a href="/pages">页面</a></li>
+              
+              
+                <li><a href="/about">关于</a></li>
+              
+          </ul>
+            <ul class="nav pull-right social">
+              <li class="divider-vertical"></li>
+                <li>
+                  <a href="https://www.github.com/leaveboy" class="zocial github" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="https://profiles.google.com/" class="zocial googleplus icon" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="http://www.twitter.com/leaveboy" class="zocial twitter icon" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="http://weibo.com/leavemeng" class="zocial weibo icon" target="_blank"></a>
+                </li>
+                <li>
+                  <!--<a href="/" class="zocial rss icon" target="_blank"></a>-->
+                  <a href="http://feed.feedsky.com/leemeng" class="zocial rss icon" target="_blank"></a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="content">
+        <div class="page-header">
+  <h1>Lee Meng's Blog </h1>
+  「 A man's dreams are index to his greatness 」
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <div class="post">
+  <h3 class="title"><a href="/blog/2013/05/29/%E5%85%B3%E4%BA%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F">关于正则表达式</a> <span class="date">2013-05-29</span></h3>
+
+  <h3 id="toc_0">起因</h3>
+
+<p>正则表达式初次被我重视归咎于<a href="http://lilydjwg.is-programmer.com/" title="依云&#39;s Blog">百合仙子</a>,当时以为‘他’是美女，当然美女在<a href="test@vim-cn.com" title="技术群">群里</a>出的题目都大家都相当重视去解决，估计当时有很多兄弟被他忽悠过。不过到现在来看，这种忽悠是值得的，终归最后是拓宽了知识面，同时认识了一群志趣相投的业内人士。</p>
+
+<p>只所以今天重拾正则这个话题，原因是昨天有同事提到一次面试题，遇到此题。</p>
+
+<h3 id="toc_1">题目</h3>
+
+<p>原文：如何匹配一个数字，范围在（1-65555）不可以使用分组<code>|</code>。</p>
+
+<h3 id="toc_2">分析</h3>
+
+<p>匹配数字，正则对应的元字符是<code>\d</code>,单词的开始结束<code>\b</code>,这样就有了雏形</p>
+
+<pre><code>`\b\d\d\d\d\d\b`
+</code></pre>
+
+<p>但是此时是配置5位任意数，对于1、2、3、4位数就无法匹配，解决的方法是加入限定符重复零次或一次<code>？</code>,即</p>
+
+<pre><code>`\b\d?\d?\d?\d?\d?\b`
+</code></pre>
+
+<p>这样就可以匹配0-99999的数，要进一步对该值进行限制，就需要加入零宽度断言<code>(?&lt;!exp)</code>最后的结果就是</p>
+
+<pre><code>`\b[1-6]?\d?(?&lt;!6[6-9])\d?(?&lt;!65[6-9])\d?(?&lt;!655[6-9])\d?(?&lt;!6555[6-9])\b`
+</code></pre>
+
+<h3 id="toc_3">结果</h3>
+
+<pre><code>`\b[1-6]?\d?(?&lt;!6[^1-5])\d?(?&lt;!65[6-9])\d?(?&lt;!655[6-9])\d?(?&lt;!6555[6-9])\b`
+</code></pre>
+
+<p>这个结果还不是很完美，它包含了0开头的数字, 先做记录，以后再做完整。</p>
+
+
+  <div class="more">
+    <a href="/blog/2013/05/29/%E5%85%B3%E4%BA%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F" class="btn btn-small">read more..</a> (<a href="/blog/2013/05/29/%E5%85%B3%E4%BA%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#disqus_thread">Commits</a>) 
+  </div>
+</div>
+<div class="post">
+  <h3 class="title"><a href="/blog/2013/04/08/%E8%BD%AC-%E4%BD%BF%E7%94%A8-byzanz-%E5%BD%95%E5%88%B6-gif-%E5%8A%A8%E7%94%BB%E6%88%96-ogv-%E8%A7%86%E9%A2%91">「转」使用 Byzanz 录制 Gif 动画或 Ogv 视频</a> <span class="date">2013-04-08</span></h3>
+
+  <p>想要录制 Linux 桌面？Byzanz 是一个不错的选择。Byzanz 简单小巧，容易使用，既能录制 Gif 动画，又可录制 Ogv 视频。</p>
+
+<p><img src="http://lt-file.b0.upaiyun.com/files/2012/12/byzanz-demo.gif" alt="Byzanz"></p>
+
+<h3 id="toc_0">安装 Byzanz</h3>
+
+<p>可执行下列指令来安装 Byzanz，注意需要 root 权限：</p>
+
+<pre><code>aptitude install byzanz # Debian/Ubuntu
+yum install byzanz # Fedora
+emerge -av byzanz # Gentoo/Funtoo
+pacman -S byzanz #Archlinux
+</code></pre>
+
+<p>Arch Linux 用户可在 AUR 中找到 Byzanz。如果你不能在自己所用的 Linux 发行版包仓库中找到 Byzanz，那么可以获取其源代码，自行编译。</p>
+
+<h3 id="toc_1">Byzanz 用法</h3>
+
+<p>以本文的 byzanz-demo.gif 为例，你可以通过如下命令来完成录制过程：</p>
+
+<pre><code>yzanz-record -d 40 -x 0 -y 0 -w 400 -h 320 byzanz-demo.gif
+</code></pre>
+
+<p>其中：</p>
+
+<ul>
+<li>   <code>-d 40</code> 为录制的时长为 40 秒</li>
+<li>   <code>-x 0</code> 录制区域的横坐标</li>
+<li>   <code>-y 0</code> 录制区域的纵坐标，记住：屏幕右上角为原点（0,0）</li>
+<li>   <code>-w 400</code> 录制区域的宽度</li>
+<li>   <code>-h 320</code> 录制区域的高度</li>
+<li>  <code>byzanz-demo.gif</code> 保存的文件名</li>
+</ul>
+
+<p>BTW: Byzanz 还带有一个 GNOME panel applet，感兴趣的同学可自行尝试。</p>
+
+
+  <div class="more">
+    <a href="/blog/2013/04/08/%E8%BD%AC-%E4%BD%BF%E7%94%A8-byzanz-%E5%BD%95%E5%88%B6-gif-%E5%8A%A8%E7%94%BB%E6%88%96-ogv-%E8%A7%86%E9%A2%91" class="btn btn-small">read more..</a> (<a href="/blog/2013/04/08/%E8%BD%AC-%E4%BD%BF%E7%94%A8-byzanz-%E5%BD%95%E5%88%B6-gif-%E5%8A%A8%E7%94%BB%E6%88%96-ogv-%E8%A7%86%E9%A2%91/#disqus_thread">Commits</a>) 
+  </div>
+</div>
+<div class="post">
+  <h3 class="title"><a href="/blog/2013/03/07/android-keyevent%E6%8A%93%E5%9B%BE-%E4%BD%BF%E7%94%A8jpeg565%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9">Android keyevent抓图，使用jpeg565对数据压缩</a> <span class="date">2013-03-07</span></h3>
+
+  <h3 id="toc_0">实现功能</h3>
+
+<p>使用poll池方法监测<code>event3</code>，<code>event5</code>和对从<code>FB_DEVICE</code>获得的图像数据进行jpeg压缩，压缩图像由之前的2700k缩小为89k，压缩比显而易见（30倍）。</p>
+
+<h3 id="toc_1">效果图</h3>
+
+<p><img src="/assets/media/2013/android.jpg" alt="Android ScreenShot" title="Android ScreenShot"> </p>
+
+<h3 id="toc_2">抓图实现</h3>
+
+<p>从<code>FB_DEVICE &quot;/dev/graphics/fb0&quot;</code>获得图像的原始数据，色彩数据分为头和rgba数据，在函数jpg<em>screen</em>capture里case 16：中我对原始数据进行了处理，将rgba8888的数据转换为rgb565的数据，最后用generateJPEG对数据进行jpeg compress，具体的可以见capture<em>jpg.c代码
+ * 这里要注意的一点是在读取fb</em>var.xres值必须为2^5=16的倍数，不够的要补足，也就是如下代码：</p>
+
+<pre><code>if((fb_var.xres&amp;0x1F)==0)
+  fb-&gt;w = fb_var.xres;
+else
+  fb-&gt;w =((fb_var.xres&gt;&gt;5)+1)&lt;&lt;5;
+</code></pre>
+
+<p>这样可以避免在抓图时出现像素移位，该问题在fb0的图像像素宽不是16的倍数时出现。</p>
+
+<p>capture_jpg.c</p>
+
+<pre><code>/*=============================================================================
+#     FileName: capture_jpg.c
+#         Desc: capture jgp screenshoot 
+#       Author: Lee Meng
+#        Email: leaveboy@gmail.com
+#     HomePage: http://leaveboy.is-programmer.com/
+#      Version: 0.0.1
+#   LastChange: 2013-01-15 09:33:23
+#      History:
+=============================================================================*/
+#include &lt;string.h&gt;  
+#include &lt;stdlib.h&gt;
+</code></pre>
+
+
+  <div class="more">
+    <a href="/blog/2013/03/07/android-keyevent%E6%8A%93%E5%9B%BE-%E4%BD%BF%E7%94%A8jpeg565%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9" class="btn btn-small">read more..</a> (<a href="/blog/2013/03/07/android-keyevent%E6%8A%93%E5%9B%BE-%E4%BD%BF%E7%94%A8jpeg565%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9/#disqus_thread">Commits</a>) 
+  </div>
+</div>
+<div class="post">
+  <h3 class="title"><a href="/blog/2013/02/19/%E5%A6%82%E4%BD%95%E5%B8%A6%E8%B7%AF%E5%BE%84%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6">如何带路径复制文件</a> <span class="date">2013-02-19</span></h3>
+
+  <h3 id="toc_0">背景</h3>
+
+<p>前段时间在做代码合并的时候，不得不采取手工merge，由于涉及的文件很多，单个<code>beyondcmp</code>着实抗不住，就想着用命令一次性搞定。</p>
+
+<h3 id="toc_1">分析</h3>
+
+<p><code>beyondcmp</code>多文件比较需要路径一致，因此如果要做这样的修改，就需要将目前修改的文件放到对应的目录下。</p>
+
+<h3 id="toc_2">思路</h3>
+
+<p>起初的想法是先截取每个文件所在的目录全路径，然后通过<code>cp</code>的方式复制过去，但这样感觉太过复杂，可能还需要写一个小脚本，有点过了。最后就想到之前用<code>tar</code>的带路径压缩解压，至于参数列表可以通过<code>xargs</code>的<code>-I</code>参数来解决，这样就可以解决文件路径创建的问题。</p>
+
+<h3 id="toc_3">做法</h3>
+
+<p>使用<code>git diff --name-only</code>可以将当前仓库做的修改文件列出来<br>
+使用<code>tar cvf</code>将文件带路径压缩<br>
+最终的命令就是</p>
+
+<pre><code>git diff --name-only | xargs -I @ tar cvf 11.tar  @
+</code></pre>
+
+<p>或者</p>
+
+<pre><code>git status --short | awk &#39;{print $2}&#39; | xargs -I @ tar cvf 11.tar  @ 
+</code></pre>
+
+<p>前者只列出修改的文件，后者包含了新加的文件--未添加到仓库中<br>
+使用<code>tar xvf</code>将<code>11.tar</code>文件带路径解压 仓库外的新目录，然后与另一个仓库进行目录比较，最后在<code>beyondcmp</code>中做手工merge</p>
+
+<h3 id="toc_4">后记</h3>
+
+<p>其实这种操作本来可以避免，但是目前由于android的版本太多，多文件比对操作无法避免，上面的做法，简单明了，能很快的将修改文件列出比较，相对与文件逐一寻找比对要方便，时间上也节省不少。</p>
+
+
+  <div class="more">
+    <a href="/blog/2013/02/19/%E5%A6%82%E4%BD%95%E5%B8%A6%E8%B7%AF%E5%BE%84%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6" class="btn btn-small">read more..</a> (<a href="/blog/2013/02/19/%E5%A6%82%E4%BD%95%E5%B8%A6%E8%B7%AF%E5%BE%84%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6/#disqus_thread">Commits</a>) 
+  </div>
+</div>
+<div class="post">
+  <h3 class="title"><a href="/blog/2013/01/09/archlinux-awsome3-5-config">archlinux awsome3.5 config</a> <span class="date">2013-01-09</span></h3>
+
+  <h3 id="toc_0">awesome config 3.5</h3>
+
+<p>由于时间原因,前几天将升级后awesome 3.5回退到3.4.但总感觉不爽,所以昨天终于 
+忍不住又折腾了一下,把所有的控件都整安逸.还是有点点收获.先上张图</p>
+
+<p><img src="https://raw.github.com/leaveboy/awesome3.5/master/fullsc.png" alt="awesome screenshot"><br>
+ awesome 3.5修正了2个 3.4上一直存在的两个问题</p>
+
+<ul>
+<li>term不能最大化的bug</li>
+<li>对非焦点窗口透明话支持(之前桌面切换会导致无法获得焦点</li>
+</ul>
+
+<p>自己的配置文件已经上传到github上,有兴趣的同学可以下载来看看.欢迎指正</p>
+
+<p>链接地址： <a href="https://raw.github.com/leaveboy/awesome3.5">点击前往</a></p>
+
+
+  <div class="more">
+    <a href="/blog/2013/01/09/archlinux-awsome3-5-config" class="btn btn-small">read more..</a> (<a href="/blog/2013/01/09/archlinux-awsome3-5-config/#disqus_thread">Commits</a>) 
+  </div>
+</div>
+
+<div class="pagination">
+  <ul>
+      <li class="active"><a href="/">1</a></li>
+      <li><a href="/posts/2">2</a></li>
+      <li><a href="/posts/3">3</a></li>
+      <li><a href="/posts/4">4</a></li>
+      <li><a href="/posts/5">5</a></li>
+      <li><a href="/posts/6">6</a></li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'leaveboy'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+ var s = document.createElement('script'); s.async = true;
+ s.type = 'text/javascript';
+ s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+ (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+ }());
+</script>
+
+  </div>
+</div>
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p align="center">如非特别声明，本博客所有文章皆为原创，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议</a>进行许可。</p>
+        <p align="center">&copy; Lee Meng 2013 Power by <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        <script type="text/javascript">
+          var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+          document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F585255a5e3d24bd2605b17df4b97e60b' type='text/javascript'%3E%3C/script%3E"));
+          </script></p>
+      </div>
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <!--<script>-->
+  <!--var _gaq=[['_setAccount','UA-38241924-1'],['_trackPageview']];-->
+  <!--(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];-->
+  <!--g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';-->
+  <!--s.parentNode.insertBefore(g,s)}(document,'script'));-->
+<!--</script>-->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38241924-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

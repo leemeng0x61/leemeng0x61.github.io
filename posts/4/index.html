@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Lee Meng">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap/css/bootstrap.min.css?0.6070012881669968" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/bootstrap/css/bootstrap-responsive.min.css?0.8504086326143516" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/css-social-buttons/zocial.stripped.css?0.11158513089700317" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/css/style.css?body=1?0.28304287995648936" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css?0.21946702244050276" type="text/css" rel="stylesheet" media="all">
+
+    
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/assets/media/favicon.ico">
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">星空™'s Blog</a>
+          <ul class="nav">
+              
+                <li><a href="/archive">归档</a></li>
+              
+              
+                <li><a href="/tags">标签</a></li>
+              
+              
+                <li><a href="/categories">分类</a></li>
+              
+              
+                <li><a href="/pages">页面</a></li>
+              
+              
+                <li><a href="/about">关于</a></li>
+              
+          </ul>
+            <ul class="nav pull-right social">
+              <li class="divider-vertical"></li>
+                <li>
+                  <a href="https://www.github.com/leaveboy" class="zocial github" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="https://profiles.google.com/" class="zocial googleplus icon" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="http://www.twitter.com/leaveboy" class="zocial twitter icon" target="_blank"></a>
+                </li>
+                <li>
+                  <a href="http://weibo.com/leavemeng" class="zocial weibo icon" target="_blank"></a>
+                </li>
+                <li>
+                  <!--<a href="/" class="zocial rss icon" target="_blank"></a>-->
+                  <a href="http://feed.feedsky.com/leemeng" class="zocial rss icon" target="_blank"></a>
+                </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+      <div class="content">
+        <div class="row-fluid">
+  <div class="span12">
+      <div class="post">
+        <h3 class="title"><a href="/blog/2008/11/26/%E4%BD%BF%E7%94%A8-memleak-%E6%A3%80%E6%9F%A5%E5%92%8C%E8%B0%83%E8%AF%95%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F">使用 memleak 检查和调试内存泄漏</a> <span class="date">2008-11-26</span></h3>
+
+        <h3 id="toc_0">memleak</h3>
+
+<h4 id="toc_1">使用范围：</h4>
+
+<p>小型的嵌入式应用中经常会出现许多内存问题，很多情况下难以定位问题出现在哪里。
+我在 <a href="http://sourceforge.net/">sourceforge</a>上找了些检测 C 内存泄漏的工具，感觉比较易用的是 <a href="http://sourceforge.net/projects/memleak/">memleak</a>，下面就来简要介绍一下它的使用。</p>
+
+<h4 id="toc_2">用法：</h4>
+
+<p>下载得到的 <code>memleak</code> 压缩包大小不到 15 kB，解压后只有两个文件：<code>memleak.c</code> 和 <code>memleak.h</code>。在使用过程中只需要包含头文件 <code>memleak.h</code> 就可以使用 <code>memleak</code> 提供的几个易用而有效的内存检测函数了。</p>
+
+<p><code>memleak</code> 的原理是利用 <code>C</code> 语言的宏调用来替代原有的函数调用，比如我们在代码中调用 <code>malloc(s)</code>，实际是调用了：<code>dbg_malloc(s)</code>，这个宏定义在 <code>memleak.h</code> 中给出：
+    #define malloc(s) (FILE<em>LINE, dbg</em>malloc(s))</p>
+
+<p><code>memleak</code> 维护了一个链表，在这个链表中保存着程序中对内存函数调用的记录，这些函数包括：<code>malloc</code>、<code>calloc</code>、<code>realloc</code>、<code>free</code>。每次调用这些函数时，就会更新这个链表。<br>
+有 了这个表，我们就可以在适当的位置调用 <code>memleak</code> 提供的函数，显示一些重要的信息，包括 <code>malloc</code>、<code>calloc</code>、<code>realloc</code>、<code>free</code>调用的次数，申请及分配的内存数，调用的文件和位置等等，信息非常详细。有了这些功能，我们就很容 易定位内存使用的错误源。</p>
+
+<p>由于 <code>memleak</code> 在某些交叉编译器下不能正常编译通过，这里我将 <code>memleak.c</code> 中的结构体 <code>struct head</code> 修改如下：</p>
+
+<pre><code>struct head
+{
+    struct head *addr;
+    size_t size;
+    char *file;
+    unsigned line;
+    /* two addresses took the same space as an address and an integer on many archs =&gt; usable */
+    union lf {
+        struct { struct head*prev, *next; } list;
+        struct { char *file; unsigned line; } free;
+    } u;
+};
+</code></pre>
+
+
+        <div class="more">
+          <a href="/blog/2008/11/26/%E4%BD%BF%E7%94%A8-memleak-%E6%A3%80%E6%9F%A5%E5%92%8C%E8%B0%83%E8%AF%95%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F" class="btn btn-small">read more..</a> (<a href="/blog/2008/11/26/%E4%BD%BF%E7%94%A8-memleak-%E6%A3%80%E6%9F%A5%E5%92%8C%E8%B0%83%E8%AF%95%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/#disqus_thread">Commits</a>)
+        </div>
+      </div>
+      <div class="post">
+        <h3 class="title"><a href="/blog/2008/02/28/a-place-nearby-lene-marlin">A place nearby - Lene Marlin</a> <span class="date">2008-02-28</span></h3>
+
+        <h3 id="toc_0"><strong>A place nearby - Lene Marlin 天堂若比邻(琳恩．玛莲)</strong></h3>
+
+<hr>
+
+<blockquote>
+<p>I entered the room.我走进房间。<br>
+ Sat by Ur bed all through the night.坐在你床边整夜未眠。<br>
+ I watched Ur daily fight.回望你曾有的坚强 。<br>
+ I hardly knew.我终于明白。<br>
+ The pain was almost more than I couldbear.那种疼痛我无法承受。<br>
+ And still I hear.而今我仍能听到。<br>
+ Ur last words 2 me.你最后的话语。    </p>
+</blockquote>
+
+<blockquote>
+<p>Heaven is a place nearby.天堂并不遥远。<br>
+ So I won’t be so far away.我也不会走远。<br>
+ And if U try &amp; look 4 me.你若要找我。<br>
+ Maybe U’ll find me someday.某一天 你终能把我找到。<br>
+ So there’s no need 2 say goodbye.所以没必要说再见。<br>
+ I wanna ask U not 2 cry.请别为我哭泣。<br>
+ I’ll always be by Ur side ! 我将永远守在你身边！    </p>
+</blockquote>
+
+<blockquote>
+<p>U just faded away.你已慢慢走远。<br>
+ U spread Ur wings U had flown.展开羽翼飞向天边。<br>
+ Away 2 something unknown.在冥冥苍穹。<br>
+ Wish I could bring U back.我好希望能把你找回。<br>
+ U are always on my mind.你是我的思绪。<br>
+ About 2 tear myself apart.与我难以割舍。<br>
+ U have Ur special place in my heart.占有我心中最特殊的角落。    </p>
+</blockquote>
+
+
+        <div class="more">
+          <a href="/blog/2008/02/28/a-place-nearby-lene-marlin" class="btn btn-small">read more..</a> (<a href="/blog/2008/02/28/a-place-nearby-lene-marlin/#disqus_thread">Commits</a>)
+        </div>
+      </div>
+      <div class="post">
+        <h3 class="title"><a href="/blog/2007/07/02/%E6%9D%82%E6%84%9F">杂感</a> <span class="date">2007-07-02</span></h3>
+
+        <p>不知道为什么现在还是不想睡觉！刚刚在几个熟识的BLOG上面忽悠过后，有些莫名的感触！</p>
+
+<p>人的感觉真的很有意思！小时候，时间多，爱看电视，而且什么都看，凡是有节目都看，很奇怪那时为什么有那么大兴致！虽然那时对感觉还是很懵懂，但是看多了也就有那么点feeling了！电视里面演的男主角、大多要么武功很高，要么能力很强、要么优柔寡断，并且都是重感情！剧情通常是他是喜欢一个女人，而却因为某种原因不能在一起，而旁边却有几个喜欢他的女人，他却对喜欢的那个女人义无反顾！………………</p>
+
+<p>类似的看多了，就使人感觉好像只有具备这些特点，才是一个优秀的人！（难道是“鸡尾酒会效应”的结果，MS也不是很贴切），所以在有段时间，感觉好像自己都是在模仿这些角色，以此为标准在衡量自己！现在想起来，挺有意思，毕竟那时没有一个完整的看待身边人，事物的观点和思维方式，对待问题也只是在依照别人的思维，做法来模拟。我想许多人应该都有这个类似的感觉！也许这也是每个人成长的烦恼！</p>
+
+<p>感觉总是依附于我们说经历的事！（不知道为什么自己总是站在一个总结的角度来看整个问题，比较奇怪！！）</p>
+
+<p>看到几个blog的语言带有几分忧郁！不知道为什么？！或许因为他们所经历的事情而这样的!也或许因为他们有了这些经历之后而模仿，才这样的！也或许是为了更多…………(说不大清楚)</p>
+
+
+        <div class="more">
+          <a href="/blog/2007/07/02/%E6%9D%82%E6%84%9F" class="btn btn-small">read more..</a> (<a href="/blog/2007/07/02/%E6%9D%82%E6%84%9F/#disqus_thread">Commits</a>)
+        </div>
+      </div>
+      <div class="post">
+        <h3 class="title"><a href="/blog/2007/06/02/%E4%B8%8D%E7%9C%A0%E5%A4%9C">不眠夜</a> <span class="date">2007-06-02</span></h3>
+
+        <p>最近工作的事情比较顺利！没什么要说的！前段时间的项目熟悉！直到昨天有了进展，MS是最近能令我们这组人高兴的事情！
+    新的东西相对来说要投入的还是要多一些，毕竟没有接触过！说心里话，兜的圈子是很大的！要是能有个带头的人，那进展就快多了！！！事事非能如人意！也许这样才能磨出传说中的高手！</p>
+
+<p>媳妇的妹妹问我以后在那定居，我说要是月薪能拿到10K就呆在这---自己说大话了，说实话心里没底，男人就是这样，没有把握也要装有把握，有时比较鄙视自己，未来不知道的事情，硬是要装的很有信心的样子。幸好命还算好，装出来的信心MS还没有让人失望过！</p>
+
+<p>晚上宿舍停电，郁闷非常，不知道为什么，这边会出现这种情况，对这里的印象明显变坏！自己在宿舍就好像是蒸了20分钟的馍，涨大了！出来网吧！！！算是好点！</p>
+
+
+        <div class="more">
+          <a href="/blog/2007/06/02/%E4%B8%8D%E7%9C%A0%E5%A4%9C" class="btn btn-small">read more..</a> (<a href="/blog/2007/06/02/%E4%B8%8D%E7%9C%A0%E5%A4%9C/#disqus_thread">Commits</a>)
+        </div>
+      </div>
+      <div class="post">
+        <h3 class="title"><a href="/blog/2006/12/27/%E5%8D%88%E5%A4%9C-%E4%B8%8D%E6%83%B3%E7%9D%A1%E8%A7%89">午夜 不想睡觉</a> <span class="date">2006-12-27</span></h3>
+
+        <h3 id="toc_0">innocent eyes</h3>
+
+<p>Lost Without You</p>
+
+<p><img src="/assets/media/2006/08.jpg" alt="innocent eyes"><br>
+凌晨0:20，不想睡觉！在网上瞎忽悠！没上QQ，没上MSN，没去逛论坛!    </p>
+
+<p>最近喜欢一首歌:&lt;<Lost Without You!>&gt;收录在Delta Goodrem的专辑&lt;<innocent eyes>&gt;(纯真眼眸)!   </p>
+
+<p>听过一边之后就喜欢了!也许是到最近这段时间才有时间来静静地想一些东西!也许为了离我和妹妹远去的母亲！明日母亲忌日！这首算是对母亲的思念吧！    </p>
+
+<p>自澳洲的<code>Delta Goodrem</code>,年仅18岁便以单曲《Born To Try》、《Lost Without You》拿下澳洲排行冠军,被传媒誉为下个明日之星..    </p>
+
+<p>首支单曲《Born To Try》在全英金榜拿下 Top3,第2支抒情单曲《Lost Without You》也来势汹汹大有作为,专辑《Innocent Eyes》网罗到前接招合唱团主唱盖瑞巴洛为其写歌,还有Ric Wake (Celine Dion、Jennifer Lopez、Mariah Carey),Matthew Gerrard （Mandy Moore、BB Mak）,David Nicholas (Elton John)等坚强制作与词曲幕后工作人员，以青春热情、活力纯真的音乐面貌出现.. 《纯真眼眸Innocent Eyes》专辑中的作品,绝大多数听起来就好象是从她日记中撕落的篇幅,她独自或者与人合作谱写出几近所有的曲子,\&quot;每首歌都抓住了一段别具深刻意义的回忆”Delta解释道..\&quot;企图创造出一张能反映我生命中这段时光的专辑.\&quot;首支单曲《Born To Try》蕴含激励人心的歌词及奔放昂扬节奏动感,给予听者深刻的印象,第二支单曲《Lost Without You》是一首醇熟动人的流行歌曲,圆润丰富的作品,传达出这支中版抒情曲其最主要的特色就是Delta那显露出她真实天份的坚定嗓音..   </p>
+
+<p>前段时间刚刚分到小组时!开小组会的时候分了四个小块让自己来做!当时听了就傻!心想这次要挂了!这是接手的第一个项目!要是这样那还得了!!事事的发展老是出乎人的意料!不过这次我的运气好点!原来以为在要求的两周之内是无法完成的!谁晓得刚过去一周就基本完成了!心里是蛮高兴!   </p>
+
+<p>小组庆祝新成员加入一起吃饭时（刚刚庆祝我们加入，而我却转到研究所了，呵呵！有时候说不清啊!这顿饭的含义）!喝了平生来最多一次的白酒!当时喝完没什么感觉!不过到晚间就痛苦的相当了!饭桌过后去KTV High! 算是庆贺我们新加入的!同时也提前祝贺圣诞了!K歌的时候场面相当地火热的!组长中的几个让我印象大为转变！许多平时上班很地道的前辈,在此刻都爆发了!呵呵!原来以为他们都比较难接触！从那次之后！感觉就好像是大学里面的同学一样！呵呵！喜欢这种的基调！平静的心后面充满生活热诚！大家都跟着乱走调！谁都不晓得歌词是否一致？！也许直到第二天嗓子全都有些哑的时候！才意识到吧！    </p>
+
+
+        <div class="more">
+          <a href="/blog/2006/12/27/%E5%8D%88%E5%A4%9C-%E4%B8%8D%E6%83%B3%E7%9D%A1%E8%A7%89" class="btn btn-small">read more..</a> (<a href="/blog/2006/12/27/%E5%8D%88%E5%A4%9C-%E4%B8%8D%E6%83%B3%E7%9D%A1%E8%A7%89/#disqus_thread">Commits</a>)
+        </div>
+      </div>
+    
+    <div class="pagination">
+      <ul>
+          <li><a href="/">1</a></li>
+          <li><a href="/posts/2">2</a></li>
+          <li><a href="/posts/3">3</a></li>
+          <li class="active"><a href="/posts/4">4</a></li>
+          <li><a href="/posts/5">5</a></li>
+          <li><a href="/posts/6">6</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'leaveboy'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+ var s = document.createElement('script'); s.async = true;
+ s.type = 'text/javascript';
+ s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+ (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+ }());
+</script>
+
+      </div>
+
+      <hr>
+      <div class="footer">
+        <p align="center">如非特别声明，本博客所有文章皆为原创，采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">知识共享署名-非商业性使用-相同方式共享 3.0 Unported许可协议</a>进行许可。</p>
+        <p align="center">&copy; Lee Meng 2013 Power by <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        <script type="text/javascript">
+          var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+          document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F585255a5e3d24bd2605b17df4b97e60b' type='text/javascript'%3E%3C/script%3E"));
+          </script></p>
+      </div>
+    </div> <!-- /container -->
+
+    <!-- Google Prettify -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+<!-- end Google Prettify -->
+    <!--<script>-->
+  <!--var _gaq=[['_setAccount','UA-38241924-1'],['_trackPageview']];-->
+  <!--(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];-->
+  <!--g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';-->
+  <!--s.parentNode.insertBefore(g,s)}(document,'script'));-->
+<!--</script>-->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38241924-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>
