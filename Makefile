@@ -12,22 +12,31 @@
 src = public
 
 all:
-	rm ${src} -fr
+	@npx hexo clean
+	@npx hexo generate
 	@npx hexo deploy
 
-.PHONE:install
+.PHONY:install
 install:
-	rm ${src} -fr
+	@npx hexo clean
+	@npx hexo generate
 	@npx hexo deploy
 
-.PHONE:clean
+.PHONY:clean
 clean:
-	@rm  -fr ${src}
+	@npx hexo clean
 
-.PHONE:push
+.PHONY:push
 push:
 	git add . && git commit -a -m "update" && git push
 
-.PHONE:test
+.PHONY:test
 test:
 	@npx hexo server
+
+.PHONY:deploy
+deploy:
+	@npx hexo clean
+	@npx hexo generate
+	@npx hexo deploy
+	git add . && git commit -a -m "update" && git push
