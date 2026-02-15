@@ -28,7 +28,6 @@ clean:
 
 .PHONY:push
 push:
-	git remote set-url origin git@github.com:leemeng0x61/leemeng0x61.github.io.git
 	git add . && git commit -a -m "update" && git push
 
 .PHONY:test
@@ -40,5 +39,4 @@ deploy:
 	@npx hexo clean
 	@npx hexo generate
 	@npx hexo deploy
-	git remote set-url origin git@github.com:leemeng0x61/leemeng0x61.github.io.git
 	git add . && git commit -a -m "update" && git push
