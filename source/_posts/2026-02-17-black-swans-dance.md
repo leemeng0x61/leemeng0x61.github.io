@@ -19,4 +19,4 @@ categories:
 
 黑天鹅教会我们的，或许不是如何与众不同，而是如何在差异中找到共鸣，在流动中保持优雅。
 
-![黑天鹅之舞](images/2026/02/17/black-swans.jpg)
+![黑天鹅之舞](black-swans.jpg)
