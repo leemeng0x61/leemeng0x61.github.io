@@ -10,7 +10,7 @@ categories: [technology]
 使用poll池方法监测`event3`，`event5`和对从`FB_DEVICE`获得的图像数据进行jpeg压缩，压缩图像由之前的2700k缩小为89k，压缩比显而易见（30倍）。
 
 ###  效果图
-![Android ScreenShot](/assets/media/2013/android.jpg "Android ScreenShot") 
+![Android ScreenShot](/images/2013/android.jpg "Android ScreenShot") 
 
 ###  抓图实现
 

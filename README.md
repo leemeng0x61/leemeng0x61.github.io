@@ -42,5 +42,5 @@ npx hexo deploy
 ## 写作规范
 
 - 文章文件名使用英文命名
-- 图片存放在 `source/assets/media/年份/` 目录下
+- 图片存放在 `source/assets/media/year/` 目录下
 - Front Matter 必须包含：title, date, categories, tags

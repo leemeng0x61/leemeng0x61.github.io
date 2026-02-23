@@ -4,8 +4,8 @@
 
 ## 人生形像巅峰时刻：
 
-![靓照](/assets/media/psu.jpeg) 
+![靓照](/images/psu.jpeg) 
 
 ## 联系我:
 
-![联系我](/assets/media/gmail.gif) 
+![联系我](/images/gmail.gif) 

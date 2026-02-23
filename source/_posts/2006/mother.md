@@ -8,7 +8,7 @@ tags: [memory]
 ### innocent eyes
 Lost Without You
 
-![innocent eyes](/assets/media/2006/08.jpg)    
+![innocent eyes](/images/2006/08.jpg)    
 凌晨0:20，不想睡觉！在网上瞎忽悠！没上QQ，没上MSN，没去逛论坛!    
 
 最近喜欢一首歌:<<Lost Without You!>>收录在Delta Goodrem的专辑<<innocent eyes>>(纯真眼眸)!   
