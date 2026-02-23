@@ -27,7 +27,7 @@
 
 ## 工作目录
 
-- 博客根目录: `/home/lm/blog`
+- 博客根目录: `$HOME/blog`
 - 仓库地址: `https://github.com/leemeng0x61/leemeng0x61.github.io`
 - 源码分支: `master` (Hexo 源码)
 - 发布分支: `gh-pages` (静态网站)
@@ -37,6 +37,52 @@
 当用户发送图片时，自动进入此模式。
 
 ## 工作流程
+
+### 第 0 步：检测博客工程环境
+
+在开始生成博文前，先检测博客工程状态：
+
+1. **检查目录是否存在**：
+```bash
+if [ ! -d "$HOME/blog" ]; then
+  echo "博客目录不存在，是否需要克隆仓库？"
+  exit 1
+fi
+```
+
+2. **检查是否为 Git 仓库**：
+```bash
+cd $HOME/blog
+if [ ! -d ".git" ]; then
+  echo "当前目录不是 Git 仓库"
+  exit 1
+fi
+```
+
+3. **拉取最新代码**：
+```bash
+cd $HOME/blog
+git fetch origin
+LOCAL=$(git rev-parse @)
+REMOTE=$(git rev-parse @{u})
+
+if [ $LOCAL != $REMOTE ]; then
+  echo "⚠️ 本地代码不是最新，是否需要拉取？"
+  # 等待用户确认后执行
+  git pull origin master
+fi
+```
+
+4. **检查未提交的更改**：
+```bash
+cd $HOME/blog && git status --porcelain
+# 如果有未提交的更改，提示用户
+```
+
+**处理方式：**
+- 如果目录不存在，询问用户是否克隆仓库
+- 如果代码不是最新，建议拉取最新代码
+- 如果有未提交更改，提示用户（继续或先处理）
 
 ### 第 1 步：接收并分析图片
 
@@ -105,7 +151,7 @@
    - 示例：`2026-02-23-spring-blossoms.jpg`
 
 2. **Markdown 文件**：
-   - 保存路径：`/home/lm/blog/source/_posts/YYYY/`
+   - 保存路径：`$HOME/blog/source/_posts/YYYY/`
    - 文件命名：`YYYY-MM-DD-英文标题.md`
    - 示例：`2026-02-23-spring-blossoms.md`
 
@@ -183,12 +229,12 @@ tags:
 用户确认后，执行部署流程：
 
 ```bash
-cd /home/lm/blog && bash deploy.sh
+cd $HOME/blog && bash deploy.sh
 ```
 
 或分步执行：
 ```bash
-cd /home/lm/blog
+cd $HOME/blog
 npx hexo clean
 npx hexo generate
 npx hexo deploy
