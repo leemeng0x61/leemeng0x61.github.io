@@ -229,11 +229,6 @@ tags:
 用户确认后，执行部署流程：
 
 ```bash
-cd $HOME/blog && bash deploy.sh
-```
-
-或分步执行：
-```bash
 cd $HOME/blog
 npx hexo clean
 npx hexo generate
