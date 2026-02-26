@@ -1,0 +1,61 @@
+# Hexo Config
+site: Lee·Meng 的技术博客
+author: Lee·Meng
+description: 个人博客，记录技术心得和生活感悟
+timezone: Asia/Shanghai
+url: https://leemeng0x61.github.io
+
+# URL Settings
+permalink: :title/
+permalink_defaults: {}
+
+# Directory
+source_dir: source
+public_dir: public
+static_dir: ''
+
+# Writing
+new_post_name: :title.md
+default_layout: post
+titlecase: false
+excerpt_link: auto
+post_asset_folder: false
+highlight: true
+prismjs: true
+markdown: preset
+
+# Category, Tag and Tag
+automatic_categories: true
+default_category: uncategorized
+
+# Date/Time Format
+time_format: %Y-%m-%d %H:%M:%S
+date_format: %Y-%m-%d
+
+# Archives
+archive_dir: archives
+archive_format: '%Y-%m'
+post_state: true
+
+# RSS Feed
+rss: feed.xml
+
+# Server
+server:
+  host: localhost
+  port: 4000
+
+# Deployment
+deploy:
+  type: ''
+  repo: ''
+  branch: ''
+
+# Renderers
+markdown.renderers: []
+
+# Pagination
+paginate: 10
+
+# Extensions
+theme: landscape
