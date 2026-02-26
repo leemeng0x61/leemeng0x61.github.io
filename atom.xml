@@ -6,7 +6,7 @@
   <link href="https://leemeng0x61.github.io/atom.xml" rel="self"/>
   
   <link href="https://leemeng0x61.github.io/"/>
-  <updated>2026-02-26T02:54:16.884Z</updated>
+  <updated>2026-02-26T03:11:44.277Z</updated>
   <id>https://leemeng0x61.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>晨光中的玻璃森林</title>
+    <link href="https://leemeng0x61.github.io/2026/02/26/2026-02-26-morning-light-incubation-park/"/>
+    <id>https://leemeng0x61.github.io/2026/02/26/2026-02-26-morning-light-incubation-park/</id>
+    <published>2026-02-26T01:46:00.000Z</published>
+    <updated>2026-02-26T03:11:44.277Z</updated>
+    
+    
+    <summary type="html">早晨九点半的成都孵化园，阳光从东南方斜切进来，给玻璃幕墙镀上一层淡金色。在这座城市的大脑里，每个玻璃格子后面都是一个正在运行的故事。</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://leemeng0x61.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="成都" scheme="https://leemeng0x61.github.io/tags/%E6%88%90%E9%83%BD/"/>
+    
+    <category term="孵化园" scheme="https://leemeng0x61.github.io/tags/%E5%AD%B5%E5%8C%96%E5%9B%AD/"/>
+    
+    <category term="城市观察" scheme="https://leemeng0x61.github.io/tags/%E5%9F%8E%E5%B8%82%E8%A7%82%E5%AF%9F/"/>
+    
+    <category term="随笔" scheme="https://leemeng0x61.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="晨光" scheme="https://leemeng0x61.github.io/tags/%E6%99%A8%E5%85%89/"/>
+    
+  </entry>
   
   <entry>
     <title>OpenClaw 完全入门教程 - 从零开始部署你的AI助手</title>
@@ -413,25 +440,6 @@
     
     
     <category term="awesome" scheme="https://leemeng0x61.github.io/tags/awesome/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>statfs获得硬盘使用情况 模拟linux命令 df （2011.3.24修正）</title>
-    <link href="https://leemeng0x61.github.io/2009/10/10/2009/df/"/>
-    <id>https://leemeng0x61.github.io/2009/10/10/2009/df/</id>
-    <published>2009-10-10T00:00:00.000Z</published>
-    <updated>2026-02-26T02:53:03.622Z</updated>
-    
-    
-    <summary type="html">statfs获得硬盘使用情况</summary>
-    
-    
-    
-    <category term="technology" scheme="https://leemeng0x61.github.io/categories/technology/"/>
-    
-    
-    <category term="code" scheme="https://leemeng0x61.github.io/tags/code/"/>
     
   </entry>
   
