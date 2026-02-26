@@ -6,7 +6,7 @@
   <link href="https://leemeng0x61.github.io/atom.xml" rel="self"/>
   
   <link href="https://leemeng0x61.github.io/"/>
-  <updated>2026-02-26T04:30:23.149Z</updated>
+  <updated>2026-02-26T10:10:45.998Z</updated>
   <id>https://leemeng0x61.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>锦城湖春日即兴</title>
+    <link href="https://leemeng0x61.github.io/2026/02/26/2026-02-26-jincheng-lake-spring/"/>
+    <id>https://leemeng0x61.github.io/2026/02/26/2026-02-26-jincheng-lake-spring/</id>
+    <published>2026-02-26T10:10:00.000Z</published>
+    <updated>2026-02-26T10:10:45.998Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;🌸-阦城湖春日尴兴&quot;&gt;&lt;a href=&quot;#🌸-阦城湖春日尴兴&quot; class=&quot;headerlink&quot; title=&quot;🌸 阦城湖春日尴兴&quot;&gt;&lt;/a&gt;🌸</summary>
+        
+      
+    
+    
+    
+    <category term="随笔" scheme="https://leemeng0x61.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="诗歌" scheme="https://leemeng0x61.github.io/tags/%E8%AF%97%E6%AD%8C/"/>
+    
+    <category term="成都" scheme="https://leemeng0x61.github.io/tags/%E6%88%90%E9%83%BD/"/>
+    
+    <category term="春日" scheme="https://leemeng0x61.github.io/tags/%E6%98%A5%E6%97%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>逆光中的信使</title>
@@ -31,17 +60,17 @@
     <category term="随笔" scheme="https://leemeng0x61.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="锦城公园" scheme="https://leemeng0x61.github.io/tags/%E9%94%A6%E5%9F%8E%E5%85%AC%E5%9B%AD/"/>
-    
     <category term="成都" scheme="https://leemeng0x61.github.io/tags/%E6%88%90%E9%83%BD/"/>
+    
+    <category term="城市观察" scheme="https://leemeng0x61.github.io/tags/%E5%9F%8E%E5%B8%82%E8%A7%82%E5%AF%9F/"/>
+    
+    <category term="随笔" scheme="https://leemeng0x61.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="锦城公园" scheme="https://leemeng0x61.github.io/tags/%E9%94%A6%E5%9F%8E%E5%85%AC%E5%9B%AD/"/>
     
     <category term="春天" scheme="https://leemeng0x61.github.io/tags/%E6%98%A5%E5%A4%A9/"/>
     
     <category term="紫叶李" scheme="https://leemeng0x61.github.io/tags/%E7%B4%AB%E5%8F%B6%E6%9D%8E/"/>
-    
-    <category term="随笔" scheme="https://leemeng0x61.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
-    
-    <category term="城市观察" scheme="https://leemeng0x61.github.io/tags/%E5%9F%8E%E5%B8%82%E8%A7%82%E5%AF%9F/"/>
     
   </entry>
   
@@ -62,11 +91,11 @@
     
     <category term="成都" scheme="https://leemeng0x61.github.io/tags/%E6%88%90%E9%83%BD/"/>
     
-    <category term="随笔" scheme="https://leemeng0x61.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    <category term="孵化园" scheme="https://leemeng0x61.github.io/tags/%E5%AD%B5%E5%8C%96%E5%9B%AD/"/>
     
     <category term="城市观察" scheme="https://leemeng0x61.github.io/tags/%E5%9F%8E%E5%B8%82%E8%A7%82%E5%AF%9F/"/>
     
-    <category term="孵化园" scheme="https://leemeng0x61.github.io/tags/%E5%AD%B5%E5%8C%96%E5%9B%AD/"/>
+    <category term="随笔" scheme="https://leemeng0x61.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
     <category term="晨光" scheme="https://leemeng0x61.github.io/tags/%E6%99%A8%E5%85%89/"/>
     
@@ -424,25 +453,6 @@
     
     
     <summary type="html">google天气API</summary>
-    
-    
-    
-    <category term="technology" scheme="https://leemeng0x61.github.io/categories/technology/"/>
-    
-    
-    <category term="lua" scheme="https://leemeng0x61.github.io/tags/lua/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>lua 获得天气信息</title>
-    <link href="https://leemeng0x61.github.io/2011/03/23/2011/getweather-by-lua/"/>
-    <id>https://leemeng0x61.github.io/2011/03/23/2011/getweather-by-lua/</id>
-    <published>2011-03-23T00:00:00.000Z</published>
-    <updated>2026-02-26T02:53:03.623Z</updated>
-    
-    
-    <summary type="html">lua demo 程序</summary>
     
     
     
