@@ -6,7 +6,7 @@
   <link href="https://leemeng0x61.github.io/atom.xml" rel="self"/>
   
   <link href="https://leemeng0x61.github.io/"/>
-  <updated>2026-02-26T10:15:43.187Z</updated>
+  <updated>2026-02-26T11:18:19.759Z</updated>
   <id>https://leemeng0x61.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>黄昏俯瞰：锦城公园的十字路口</title>
+    <link href="https://leemeng0x61.github.io/2026/02/26/huanghun-nk-jincheng-traffic/"/>
+    <id>https://leemeng0x61.github.io/2026/02/26/huanghun-nk-jincheng-traffic/</id>
+    <published>2026-02-26T10:38:00.000Z</published>
+    <updated>2026-02-26T11:18:19.759Z</updated>
+    
+    
+    <summary type="html">成都的黄昏从不急着降临。从锦城公园观景平台俯瞰，红灯笼下的下班高峰期，千万普通人汇成的洪流，是这座城市最真实的时刻。</summary>
+    
+    
+    
+    <category term="摄影随笔" scheme="https://leemeng0x61.github.io/categories/%E6%91%84%E5%BD%B1%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="锦城公园" scheme="https://leemeng0x61.github.io/tags/%E9%94%A6%E5%9F%8E%E5%85%AC%E5%9B%AD/"/>
+    
+    <category term="成都" scheme="https://leemeng0x61.github.io/tags/%E6%88%90%E9%83%BD/"/>
+    
+    <category term="城市观察" scheme="https://leemeng0x61.github.io/tags/%E5%9F%8E%E5%B8%82%E8%A7%82%E5%AF%9F/"/>
+    
+    <category term="摄影随笔" scheme="https://leemeng0x61.github.io/tags/%E6%91%84%E5%BD%B1%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="傍晚" scheme="https://leemeng0x61.github.io/tags/%E5%82%8D%E6%99%9A/"/>
+    
+    <category term="十字路口" scheme="https://leemeng0x61.github.io/tags/%E5%8D%81%E5%AD%97%E8%B7%AF%E5%8F%A3/"/>
+    
+  </entry>
   
   <entry>
     <title>锦城湖春日即兴</title>
@@ -441,25 +470,6 @@
     
     
     <category term="awesome" scheme="https://leemeng0x61.github.io/tags/awesome/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>lua通过google的天气api获得天气</title>
-    <link href="https://leemeng0x61.github.io/2011/03/24/2011/googleweather-by-lua/"/>
-    <id>https://leemeng0x61.github.io/2011/03/24/2011/googleweather-by-lua/</id>
-    <published>2011-03-24T00:00:00.000Z</published>
-    <updated>2026-02-26T02:53:03.623Z</updated>
-    
-    
-    <summary type="html">google天气API</summary>
-    
-    
-    
-    <category term="technology" scheme="https://leemeng0x61.github.io/categories/technology/"/>
-    
-    
-    <category term="lua" scheme="https://leemeng0x61.github.io/tags/lua/"/>
     
   </entry>
   
