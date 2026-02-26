@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"leemeng0x61.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本文详细介绍如何安装、配置和使用 OpenClaw AI助手平台，包括技能使用、工作流设置和实际应用案例。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenClaw 完全入门教程 - 从零开始部署你的AI助手">
+<meta property="og:url" content="https://leemeng0x61.github.io/2026/02/25/openclaw-tutorial/index.html">
+<meta property="og:site_name" content="Lee Meng&#39;s Blog">
+<meta property="og:description" content="本文详细介绍如何安装、配置和使用 OpenClaw AI助手平台，包括技能使用、工作流设置和实际应用案例。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-25T10:30:00.000Z">
+<meta property="article:modified_time" content="2026-02-26T02:54:16.884Z">
+<meta property="article:author" content="Leemeng0x61">
+<meta property="article:tag" content="OpenClaw">
+<meta property="article:tag" content="AI助手">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="部署">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://leemeng0x61.github.io/2026/02/25/openclaw-tutorial/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leemeng0x61.github.io/2026/02/25/openclaw-tutorial/","path":"2026/02/25/openclaw-tutorial/","title":"OpenClaw 完全入门教程 - 从零开始部署你的AI助手"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>OpenClaw 完全入门教程 - 从零开始部署你的AI助手 | Lee Meng's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Lee Meng's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Lee Meng's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">「 A man's dreams are index to his greatness 」</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenClaw-%E5%AE%8C%E5%85%A8%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">OpenClaw 完全入门教程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-OpenClaw%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">什么是 OpenClaw？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E7%89%B9%E6%80%A7"><span class="nav-number">1.1.1.</span> <span class="nav-text">核心特性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="nav-number">1.2.</span> <span class="nav-text">快速开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 环境准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 初始化工作空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 基础配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.3.</span> <span class="nav-text">核心功能详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%B0%E5%BF%86%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.3.1.</span> <span class="nav-text">记忆系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E8%83%BD%E7%B3%BB%E7%BB%9F-Skills"><span class="nav-number">1.3.2.</span> <span class="nav-text">技能系统 (Skills)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%F0%9F%93%B1-Apple-%E9%9B%86%E6%88%90"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">📱 Apple 集成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%F0%9F%93%9D-%E7%AC%94%E8%AE%B0%E5%B7%A5%E5%85%B7"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">📝 笔记工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%F0%9F%A4%96-AI-%E5%B7%A5%E5%85%B7"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">🤖 AI 工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%F0%9F%8C%90-%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">🌐 实用工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%F0%9F%9B%A0%EF%B8%8F-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7"><span class="nav-number">1.3.2.5.</span> <span class="nav-text">🛠️ 开发工具</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8"><span class="nav-number">1.3.3.</span> <span class="nav-text">工具调用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">系统命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">网络操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8E%A7%E5%88%B6"><span class="nav-number">1.3.3.4.</span> <span class="nav-text">浏览器控制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">1.4.</span> <span class="nav-text">实际应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%BA%E6%99%AF1%EF%BC%9A%E6%AF%8F%E6%97%A5%E5%B7%A5%E4%BD%9C%E6%B5%81%E8%87%AA%E5%8A%A8%E5%8C%96"><span class="nav-number">1.4.1.</span> <span class="nav-text">场景1：每日工作流自动化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%BA%E6%99%AF2%EF%BC%9A%E6%99%BA%E8%83%BD%E7%AC%94%E8%AE%B0%E7%AE%A1%E7%90%86"><span class="nav-number">1.4.2.</span> <span class="nav-text">场景2：智能笔记管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%BA%E6%99%AF3%EF%BC%9A%E4%BB%A3%E7%A0%81%E9%A1%B9%E7%9B%AE%E5%8A%A9%E6%89%8B"><span class="nav-number">1.4.3.</span> <span class="nav-text">场景3：代码项目助手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%BA%E6%99%AF4%EF%BC%9A%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E4%B8%8E%E7%A0%94%E7%A9%B6"><span class="nav-number">1.4.4.</span> <span class="nav-text">场景4：信息收集与研究</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E9%85%8D%E7%BD%AE"><span class="nav-number">1.5.</span> <span class="nav-text">高级配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%B9%B3%E5%8F%B0%E6%B6%88%E6%81%AF%E9%9B%86%E6%88%90"><span class="nav-number">1.5.1.</span> <span class="nav-text">多平台消息集成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8A%80%E8%83%BD%E5%BC%80%E5%8F%91"><span class="nav-number">1.5.2.</span> <span class="nav-text">自定义技能开发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86"><span class="nav-number">1.5.3.</span> <span class="nav-text">会话管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-number">1.6.</span> <span class="nav-text">最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4"><span class="nav-number">1.6.1.</span> <span class="nav-text">1. 隐私保护</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="nav-number">1.6.2.</span> <span class="nav-text">2. 性能优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="nav-number">1.6.3.</span> <span class="nav-text">3. 错误处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6"><span class="nav-number">1.6.4.</span> <span class="nav-text">4. 版本控制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4"><span class="nav-number">1.7.</span> <span class="nav-text">故障排除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">1.7.1.</span> <span class="nav-text">常见问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%BA%90"><span class="nav-number">1.8.</span> <span class="nav-text">参考资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">1.9.</span> <span class="nav-text">结语</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Leemeng0x61"
+      src="/assets/media/photo.jpg">
+  <p class="site-author-name" itemprop="name">Leemeng0x61</p>
+  <div class="site-description" itemprop="description">「 A man's dreams are index to his greatness 」</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://leemeng0x61.github.io/2026/02/25/openclaw-tutorial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/media/photo.jpg">
+      <meta itemprop="name" content="Leemeng0x61">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee Meng's Blog">
+      <meta itemprop="description" content="「 A man's dreams are index to his greatness 」">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="OpenClaw 完全入门教程 - 从零开始部署你的AI助手 | Lee Meng's Blog">
+      <meta itemprop="description" content="本文详细介绍如何安装、配置和使用 OpenClaw AI助手平台，包括技能使用、工作流设置和实际应用案例。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          OpenClaw 完全入门教程 - 从零开始部署你的AI助手
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-02-25 18:30:00" itemprop="dateCreated datePublished" datetime="2026-02-25T18:30:00+08:00">2026-02-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-02-26 10:54:16" itemprop="dateModified" datetime="2026-02-26T10:54:16+08:00">2026-02-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">技术教程</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">本文详细介绍如何安装、配置和使用 OpenClaw AI助手平台，包括技能使用、工作流设置和实际应用案例。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="OpenClaw-完全入门教程"><a href="#OpenClaw-完全入门教程" class="headerlink" title="OpenClaw 完全入门教程"></a>OpenClaw 完全入门教程</h1><h2 id="什么是-OpenClaw？"><a href="#什么是-OpenClaw？" class="headerlink" title="什么是 OpenClaw？"></a>什么是 OpenClaw？</h2><p><strong>OpenClaw</strong> 是一个开源的 AI 助手平台，让你可以在本地运行智能代理，管理你的数字生活。它类似于一个可以安装各种技能的”AI操作系统”，通过不同的技能（Skills）来扩展功能。</p>
+<h3 id="核心特性"><a href="#核心特性" class="headerlink" title="核心特性"></a>核心特性</h3><ul>
+<li><strong>本地优先</strong>: 数据保存在本地，隐私可控</li>
+<li><strong>技能系统</strong>: 模块化设计，按需安装功能</li>
+<li><strong>多平台支持</strong>: 支持多种消息渠道（Telegram、Discord、Slack等）</li>
+<li><strong>上下文感知</strong>: 智能记忆管理，跨会话保持连续性</li>
+<li><strong>工具集成</strong>: 文件管理、网络搜索、浏览器控制等</li>
+</ul>
+<hr>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1. 环境准备"></a>1. 环境准备</h3><p><strong>系统要求:</strong></p>
+<ul>
+<li>macOS 12+ 或 Linux</li>
+<li>Node.js 18+</li>
+<li>至少 4GB 可用内存</li>
+</ul>
+<p><strong>安装 OpenClaw:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 npm 全局安装</span></span><br><span class="line">npm install -g openclaw</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证安装</span></span><br><span class="line">openclaw --version</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-初始化工作空间"><a href="#2-初始化工作空间" class="headerlink" title="2. 初始化工作空间"></a>2. 初始化工作空间</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建工作目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ~/.openclaw/workspace</span><br><span class="line"><span class="built_in">cd</span> ~/.openclaw/workspace</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化项目</span></span><br><span class="line">openclaw init</span><br></pre></td></tr></table></figure>
+
+<p>初始化后会生成以下文件结构：</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">workspace<span class="symbol">/</span></span><br><span class="line">├── AGENTS.md          <span class="comment"># 代理配置文件</span></span><br><span class="line">├── SOUL.md            <span class="comment"># AI人格定义</span></span><br><span class="line">├── USER.md            <span class="comment"># 用户信息</span></span><br><span class="line">├── IDENTITY.md        <span class="comment"># 身份标识</span></span><br><span class="line">├── TOOLS.md           <span class="comment"># 工具配置</span></span><br><span class="line">├── MEMORY.md          <span class="comment"># 长期记忆</span></span><br><span class="line">├── HEARTBEAT.md       <span class="comment"># 定期任务</span></span><br><span class="line">├── memory<span class="symbol">/</span>            <span class="comment"># 每日记忆目录</span></span><br><span class="line">│   └── <span class="number">202</span>6-<span class="number">0</span>2-<span class="number">25</span>.md</span><br><span class="line">└── blog<span class="symbol">/</span>              <span class="comment"># 博客/文档目录</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-基础配置"><a href="#3-基础配置" class="headerlink" title="3. 基础配置"></a>3. 基础配置</h3><p>编辑 <code>IDENTITY.md</code> 定义你的AI助手：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># IDENTITY.md</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="strong">**Name**</span>: Claw Assistant</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**Creature**</span>: AI Digital Companion</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**Vibe**</span>: Friendly, professional, with a touch of humor</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**Emoji**</span>: 🤖</span><br></pre></td></tr></table></figure>
+
+<p>编辑 <code>USER.md</code> 记录用户信息：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># USER.md</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="strong">**Name**</span>: 张三</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**What to call them**</span>: 张哥</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**Timezone**</span>: Asia/Shanghai</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**Notes**</span>: 喜欢自动化工具，重视隐私</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="核心功能详解"><a href="#核心功能详解" class="headerlink" title="核心功能详解"></a>核心功能详解</h2><h3 id="记忆系统"><a href="#记忆系统" class="headerlink" title="记忆系统"></a>记忆系统</h3><p>OpenClaw 的记忆系统分为三级：</p>
+<ol>
+<li><strong>短期记忆</strong>: 当前会话上下文</li>
+<li><strong>每日记忆</strong>: <code>memory/YYYY-MM-DD.md</code> 记录当天活动</li>
+<li><strong>长期记忆</strong>: <code>MEMORY.md</code> 持久化重要信息</li>
+</ol>
+<p><strong>使用示例:</strong></p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 自动记录重要决策</span></span><br><span class="line">请记录：我决定使用 <span class="keyword">Next</span>.js 重构网站</span><br><span class="line"></span><br><span class="line"><span class="meta"># 稍后查询</span></span><br><span class="line">我昨天做了什么决定？</span><br></pre></td></tr></table></figure>
+
+<h3 id="技能系统-Skills"><a href="#技能系统-Skills" class="headerlink" title="技能系统 (Skills)"></a>技能系统 (Skills)</h3><p>OpenClaw 通过技能扩展功能。当前可用技能：</p>
+<h4 id="📱-Apple-集成"><a href="#📱-Apple-集成" class="headerlink" title="📱 Apple 集成"></a>📱 Apple 集成</h4><ul>
+<li><strong>apple-notes</strong>: 管理 Apple 备忘录</li>
+<li><strong>apple-reminders</strong>: 管理提醒事项</li>
+</ul>
+<h4 id="📝-笔记工具"><a href="#📝-笔记工具" class="headerlink" title="📝 笔记工具"></a>📝 笔记工具</h4><ul>
+<li><strong>bear-notes</strong>: Bear 笔记管理</li>
+</ul>
+<h4 id="🤖-AI-工具"><a href="#🤖-AI-工具" class="headerlink" title="🤖 AI 工具"></a>🤖 AI 工具</h4><ul>
+<li><strong>gemini</strong>: Google Gemini API 集成</li>
+</ul>
+<h4 id="🌐-实用工具"><a href="#🌐-实用工具" class="headerlink" title="🌐 实用工具"></a>🌐 实用工具</h4><ul>
+<li><strong>weather</strong>: 天气查询</li>
+<li><strong>web_search</strong>: 网络搜索 (Brave API)</li>
+<li><strong>web_fetch</strong>: 网页内容提取</li>
+</ul>
+<h4 id="🛠️-开发工具"><a href="#🛠️-开发工具" class="headerlink" title="🛠️ 开发工具"></a>🛠️ 开发工具</h4><ul>
+<li><strong>mcporter</strong>: MCP 服务器管理</li>
+<li><strong>healthcheck</strong>: 系统安全检查</li>
+<li><strong>skill-creator</strong>: 创建自定义技能</li>
+</ul>
+<p><strong>安装技能:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看可用技能</span></span><br><span class="line">openclaw skills list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装特定技能</span></span><br><span class="line">openclaw skills install weather</span><br></pre></td></tr></table></figure>
+
+<h3 id="工具调用"><a href="#工具调用" class="headerlink" title="工具调用"></a>工具调用</h3><p>OpenClaw 支持多种工具操作：</p>
+<h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读取文件</span></span><br><span class="line"><span class="built_in">read</span>(path=<span class="string">&quot;config.json&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 写入文件</span></span><br><span class="line">write(path=<span class="string">&quot;output.txt&quot;</span>, content=<span class="string">&quot;Hello World&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编辑文件</span></span><br><span class="line">edit(path=<span class="string">&quot;config.yml&quot;</span>, oldText=<span class="string">&quot;version: 1.0&quot;</span>, newText=<span class="string">&quot;version: 2.0&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="系统命令"><a href="#系统命令" class="headerlink" title="系统命令"></a>系统命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 执行命令</span></span><br><span class="line"><span class="built_in">exec</span>(<span class="built_in">command</span>=<span class="string">&quot;ls -la&quot;</span>, workdir=<span class="string">&quot;/home/user&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 后台进程</span></span><br><span class="line"><span class="built_in">exec</span>(<span class="built_in">command</span>=<span class="string">&quot;npm start&quot;</span>, background=<span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="网络操作"><a href="#网络操作" class="headerlink" title="网络操作"></a>网络操作</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 搜索</span></span><br><span class="line">web_search(query=<span class="string">&quot;OpenClaw tutorial&quot;</span>, count=5)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取网页内容</span></span><br><span class="line">web_fetch(url=<span class="string">&quot;https://docs.openclaw.ai&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="浏览器控制"><a href="#浏览器控制" class="headerlink" title="浏览器控制"></a>浏览器控制</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开网页</span></span><br><span class="line">browser(action=<span class="string">&quot;open&quot;</span>, targetUrl=<span class="string">&quot;https://example.com&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 截图</span></span><br><span class="line">browser(action=<span class="string">&quot;screenshot&quot;</span>, fullPage=<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自动化操作</span></span><br><span class="line">browser(action=<span class="string">&quot;act&quot;</span>, request=&#123;<span class="string">&quot;kind&quot;</span>:<span class="string">&quot;click&quot;</span>, <span class="string">&quot;ref&quot;</span>:<span class="string">&quot;submit-button&quot;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="实际应用场景"><a href="#实际应用场景" class="headerlink" title="实际应用场景"></a>实际应用场景</h2><h3 id="场景1：每日工作流自动化"><a href="#场景1：每日工作流自动化" class="headerlink" title="场景1：每日工作流自动化"></a>场景1：每日工作流自动化</h3><p>创建 <code>HEARTBEAT.md</code>：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 每日检查清单</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 上午 9:00</span></span><br><span class="line"><span class="bullet">-</span> [ ] 检查未读邮件</span><br><span class="line"><span class="bullet">-</span> [ ] 查看今日日程</span><br><span class="line"><span class="bullet">-</span> [ ] 同步代码仓库</span><br><span class="line"></span><br><span class="line"><span class="section">## 下午 6:00  </span></span><br><span class="line"><span class="bullet">-</span> [ ] 提交今日工作记录到 memory</span><br><span class="line"><span class="bullet">-</span> [ ] 清理临时文件</span><br><span class="line"><span class="bullet">-</span> [ ] 备份重要数据</span><br></pre></td></tr></table></figure>
+
+<p>配置定时任务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 每小时检查一次</span></span><br><span class="line">openclaw cron add --name <span class="string">&quot;hourly-check&quot;</span> \</span><br><span class="line">  --schedule <span class="string">&quot;0 * * * *&quot;</span> \</span><br><span class="line">  --prompt <span class="string">&quot;Read HEARTBEAT.md and execute pending tasks&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="场景2：智能笔记管理"><a href="#场景2：智能笔记管理" class="headerlink" title="场景2：智能笔记管理"></a>场景2：智能笔记管理</h3><p>结合 Apple Notes：</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建会议记录</span></span><br><span class="line">请帮我创建一条备忘录，标题是<span class="string">&quot;产品评审会议&quot;</span>，</span><br><span class="line">内容是今天的讨论要点<span class="string">...</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 稍后查询</span></span><br><span class="line">我上周的产品评审会议记了什么？</span><br></pre></td></tr></table></figure>
+
+<h3 id="场景3：代码项目助手"><a href="#场景3：代码项目助手" class="headerlink" title="场景3：代码项目助手"></a>场景3：代码项目助手</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查项目状态</span></span><br><span class="line">请检查 ~/projects/my-app 的 git 状态</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建新功能分支</span></span><br><span class="line">基于 main 分支创建 feature/new-ui 分支</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成提交信息</span></span><br><span class="line">根据本次修改生成符合 Conventional Commits 规范的提交信息</span><br></pre></td></tr></table></figure>
+
+<h3 id="场景4：信息收集与研究"><a href="#场景4：信息收集与研究" class="headerlink" title="场景4：信息收集与研究"></a>场景4：信息收集与研究</h3><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 搜索最新技术资讯</span></span><br><span class="line">搜索关于 <span class="string">&quot;2026年前端发展趋势&quot;</span> 的最新文章</span><br><span class="line"></span><br><span class="line"><span class="meta"># 提取关键信息</span></span><br><span class="line">访问前三个链接，提取主要内容并总结成思维导图大纲</span><br><span class="line"></span><br><span class="line"><span class="meta"># 保存到笔记</span></span><br><span class="line">将研究结果保存到今天的记忆文件</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="高级配置"><a href="#高级配置" class="headerlink" title="高级配置"></a>高级配置</h2><h3 id="多平台消息集成"><a href="#多平台消息集成" class="headerlink" title="多平台消息集成"></a>多平台消息集成</h3><p>配置 Telegram Bot：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置 Telegram Token</span></span><br><span class="line">openclaw configure --channel telegram --token YOUR_BOT_TOKEN</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动消息监听</span></span><br><span class="line">openclaw gateway start</span><br></pre></td></tr></table></figure>
+
+<p>配置 Discord：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openclaw configure --channel discord --token YOUR_BOT_TOKEN</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义技能开发"><a href="#自定义技能开发" class="headerlink" title="自定义技能开发"></a>自定义技能开发</h3><p>使用 skill-creator 创建新技能：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化技能项目</span></span><br><span class="line">openclaw skill init my-custom-skill</span><br><span class="line"></span><br><span class="line"><span class="comment"># 技能目录结构</span></span><br><span class="line">my-custom-skill/</span><br><span class="line">├── SKILL.md           <span class="comment"># 技能定义</span></span><br><span class="line">├── package.json       <span class="comment"># 依赖配置</span></span><br><span class="line">├── src/               <span class="comment"># 源代码</span></span><br><span class="line">│   └── index.js</span><br><span class="line">└── README.md</span><br></pre></td></tr></table></figure>
+
+<p><strong>SKILL.md 示例:</strong></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># My Custom Skill</span></span><br><span class="line"></span><br><span class="line"><span class="section">## Description</span></span><br><span class="line">Send notifications via custom API</span><br><span class="line"></span><br><span class="line"><span class="section">## Tools</span></span><br><span class="line"><span class="bullet">-</span> notify: Send push notification</span><br><span class="line"><span class="bullet">-</span> list: List recent notifications</span><br><span class="line"></span><br><span class="line"><span class="section">## Usage</span></span><br><span class="line">notify(title=&quot;Alert&quot;, message=&quot;Something happened&quot;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="会话管理"><a href="#会话管理" class="headerlink" title="会话管理"></a>会话管理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列出活跃会话</span></span><br><span class="line">openclaw sessions list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 向特定会话发送消息</span></span><br><span class="line">openclaw sessions send --sessionKey abc123 <span class="string">&quot;Hello from main session&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建子代理会话</span></span><br><span class="line">openclaw sessions spawn --agentId researcher --task <span class="string">&quot;Research quantum computing&quot;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><h3 id="1-隐私保护"><a href="#1-隐私保护" class="headerlink" title="1. 隐私保护"></a>1. 隐私保护</h3><ul>
+<li>敏感信息使用环境变量存储</li>
+<li>定期清理 memory 文件中的敏感数据</li>
+<li>使用本地模型（如 Ollama）处理隐私数据</li>
+</ul>
+<h3 id="2-性能优化"><a href="#2-性能优化" class="headerlink" title="2. 性能优化"></a>2. 性能优化</h3><ul>
+<li>限制并发工具调用数量</li>
+<li>使用 compact 模式管理长会话</li>
+<li>定期归档旧的 memory 文件</li>
+</ul>
+<h3 id="3-错误处理"><a href="#3-错误处理" class="headerlink" title="3. 错误处理"></a>3. 错误处理</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在自定义技能中处理错误</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> tool.<span class="title function_">exec</span>(&#123;...&#125;);</span><br><span class="line">&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Tool execution failed:&#x27;</span>, error);</span><br><span class="line">  <span class="comment">// 优雅降级</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-版本控制"><a href="#4-版本控制" class="headerlink" title="4. 版本控制"></a>4. 版本控制</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始化 git 仓库</span></span><br><span class="line"><span class="built_in">cd</span> ~/.openclaw/workspace</span><br><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;Initial OpenClaw configuration&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定期备份</span></span><br><span class="line">openclaw backup create --name <span class="string">&quot;weekly-backup&quot;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="故障排除"><a href="#故障排除" class="headerlink" title="故障排除"></a>故障排除</h2><h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p><strong>Q: OpenClaw 无法启动？</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查 Node.js 版本</span></span><br><span class="line">node --version  <span class="comment"># 需要 v18+</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 清除缓存</span></span><br><span class="line">openclaw cache clear</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新安装</span></span><br><span class="line">npm uninstall -g openclaw</span><br><span class="line">npm install -g openclaw</span><br></pre></td></tr></table></figure>
+
+<p><strong>Q: 工具调用失败？</strong></p>
+<ul>
+<li>检查工具依赖是否安装</li>
+<li>验证配置文件路径</li>
+<li>查看日志：<code>openclaw logs --tail 100</code></li>
+</ul>
+<p><strong>Q: 记忆系统不工作？</strong></p>
+<ul>
+<li>确认 memory 目录存在且有写权限</li>
+<li>检查 MEMORY.md 文件格式</li>
+<li>尝试重建索引：<code>openclaw memory rebuild</code></li>
+</ul>
+<hr>
+<h2 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h2><ul>
+<li><strong>官方文档</strong>: <a href="https://docs.openclaw.ai/">https://docs.openclaw.ai</a></li>
+<li><strong>GitHub</strong>: <a href="https://github.com/openclaw/openclaw">https://github.com/openclaw/openclaw</a></li>
+<li><strong>技能市场</strong>: <a href="https://clawhub.com/">https://clawhub.com</a></li>
+<li><strong>社区</strong>: <a href="https://discord.com/invite/clawd">https://discord.com/invite/clawd</a></li>
+</ul>
+<hr>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>OpenClaw 是一个强大的个人 AI 助手平台，通过模块化的技能系统和灵活的配置，可以适应各种使用场景。从简单的日常任务到复杂的工作流自动化，OpenClaw 都能胜任。</p>
+<p>开始你的 OpenClaw 之旅吧！🚀</p>
+<hr>
+<p><em>本文档使用 OpenClaw 自动生成并发布于 2026-02-25</em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://github.com/leemeng0x61">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+
+            <span class="label">GitHub</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/OpenClaw/" rel="tag"># OpenClaw</a>
+              <a href="/tags/AI%E5%8A%A9%E6%89%8B/" rel="tag"># AI助手</a>
+              <a href="/tags/%E6%95%99%E7%A8%8B/" rel="tag"># 教程</a>
+              <a href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag"># 部署</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/02/23/2026/2026-02-23-panda-in-bamboo/" rel="prev" title="竹影深处，它慢嚼时光">
+                  <i class="fa fa-angle-left"></i> 竹影深处，它慢嚼时光
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Leemeng0x61</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">19k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:09</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"leemeng0x61/leemeng0x61.github.io","issue_term":"pathname","theme":"preferred-color-scheme"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

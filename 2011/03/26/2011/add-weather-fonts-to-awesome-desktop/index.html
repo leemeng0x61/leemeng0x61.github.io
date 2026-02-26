@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"leemeng0x61.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="用weather.ttf给awesome润色">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在AWESOME上加入天气使用googleAPI字体weather.ttf">
+<meta property="og:url" content="https://leemeng0x61.github.io/2011/03/26/2011/add-weather-fonts-to-awesome-desktop/index.html">
+<meta property="og:site_name" content="Lee Meng&#39;s Blog">
+<meta property="og:description" content="用weather.ttf给awesome润色">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://leaveboy.is-programmer.com/user_files/leaveboy/Image/PrtSc/fullsc.png">
+<meta property="article:published_time" content="2011-03-26T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-02-26T02:53:03.622Z">
+<meta property="article:author" content="Leemeng0x61">
+<meta property="article:tag" content="awesome">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://leaveboy.is-programmer.com/user_files/leaveboy/Image/PrtSc/fullsc.png">
+
+
+<link rel="canonical" href="https://leemeng0x61.github.io/2011/03/26/2011/add-weather-fonts-to-awesome-desktop/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leemeng0x61.github.io/2011/03/26/2011/add-weather-fonts-to-awesome-desktop/","path":"2011/03/26/2011/add-weather-fonts-to-awesome-desktop/","title":"在AWESOME上加入天气使用googleAPI字体weather.ttf"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>在AWESOME上加入天气使用googleAPI字体weather.ttf | Lee Meng's Blog</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Lee Meng's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Lee Meng's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">「 A man's dreams are index to his greatness 」</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#awesome-rc-lua"><span class="nav-number">1.</span> <span class="nav-text">awesome rc.lua</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Leemeng0x61"
+      src="/assets/media/photo.jpg">
+  <p class="site-author-name" itemprop="name">Leemeng0x61</p>
+  <div class="site-description" itemprop="description">「 A man's dreams are index to his greatness 」</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://leemeng0x61.github.io/2011/03/26/2011/add-weather-fonts-to-awesome-desktop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/media/photo.jpg">
+      <meta itemprop="name" content="Leemeng0x61">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lee Meng's Blog">
+      <meta itemprop="description" content="「 A man's dreams are index to his greatness 」">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="在AWESOME上加入天气使用googleAPI字体weather.ttf | Lee Meng's Blog">
+      <meta itemprop="description" content="用weather.ttf给awesome润色">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          在AWESOME上加入天气使用googleAPI字体weather.ttf
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2011-03-26 08:00:00" itemprop="dateCreated datePublished" datetime="2011-03-26T08:00:00+08:00">2011-03-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-02-26 10:53:03" itemprop="dateModified" datetime="2026-02-26T10:53:03+08:00">2026-02-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">用weather.ttf给awesome润色</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="awesome-rc-lua"><a href="#awesome-rc-lua" class="headerlink" title="awesome rc.lua"></a>awesome rc.lua</h3><p>这个脚本加入了词霸的屏幕取词，绑定PrtSc键抓图，还有天气显示！解决了前两天一直琢磨的字体天气问题！<br>上张现在桌面图：</p>
+<p><img data-src="http://leaveboy.is-programmer.com/user_files/leaveboy/Image/PrtSc/fullsc.png" alt="awesome desktop screenshot" title="screenshot"></p>
+<p>awesome 的配置文件 rc.lua</p>
+<pre><code>-- Standard awesome library
+require(&quot;awful&quot;)
+require(&quot;awful.autofocus&quot;)
+require(&quot;awful.rules&quot;)
+-- Theme handling library
+require(&quot;beautiful&quot;)
+require(&quot;vicious&quot;)
+-- Notification library
+require(&quot;naughty&quot;)
+ 
+-- Load Debian menu entries
+require(&quot;debian.menu&quot;)
+ 
+-- --- Variable definitions
+-- Themes define colours, icons, and wallpapers
+beautiful.init(&quot;/usr/share/awesome/themes/default/theme.lua&quot;)
+ 
+-- This is used later as the default terminal and editor to run.
+terminal = &quot;x-terminal-emulator&quot;
+editor = os.getenv(&quot;EDITOR&quot;) or &quot;editor&quot;
+editor_cmd = terminal .. &quot; -e &quot; .. editor
+ 
+-- Default modkey.
+-- Usually, Mod4 is the key with a logo between Control and Alt.
+-- If you do not like this or do not have such a key,
+-- I suggest you to remap Mod4 to another key using xmodmap or other tools.
+-- However, you can use another modifier like Mod1, but it may interact with others.
+modkey = &quot;Mod4&quot;
+ 
+-- Table of layouts to cover with awful.layout.inc, order matters.
+layouts =
+&#123;
+    awful.layout.suit.floating,
+    awful.layout.suit.tile,
+    awful.layout.suit.tile.left,
+    awful.layout.suit.tile.bottom,
+    awful.layout.suit.tile.top,
+    awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal,
+    awful.layout.suit.spiral,
+    awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.max,
+    awful.layout.suit.max.fullscreen,
+    awful.layout.suit.magnifier
+&#125;
+-- ___
+ 
+-- --- Tags
+-- Define a tag table which hold all screen tags.
+tags = &#123;&#125;
+for s = 1, screen.count() do
+    -- Each screen has its own tag table.
+    tags[s] = awful.tag(&#123; 1, 2, 3, 4, 5, 6, 7, 8, 9 &#125;, s, layouts[1])
+end
+-- ___
+ 
+-- --- Menu
+-- Create a laucher widget and a main menu
+myawesomemenu = &#123;
+   &#123; &quot;manual&quot;, terminal .. &quot; -e man awesome&quot; &#125;,
+   &#123; &quot;edit config&quot;, editor_cmd .. &quot; &quot; .. awful.util.getdir(&quot;config&quot;) .. &quot;/rc.lua&quot; &#125;,
+   &#123; &quot;restart&quot;, awesome.restart &#125;,
+   &#123; &quot;quit&quot;, awesome.quit &#125;
+&#125;
+ 
+mymainmenu = awful.menu(&#123; items = &#123; &#123; &quot;awesome&quot;, myawesomemenu, beautiful.awesome_icon &#125;,
+                                    &#123; &quot;Debian&quot;, debian.menu.Debian_menu.Debian &#125;,
+                                    &#123; &quot;open terminal&quot;, terminal &#125;
+                                  &#125;
+                        &#125;)
+ 
+mylauncher = awful.widget.launcher(&#123; image = image(beautiful.awesome_icon),
+                                     menu = mymainmenu &#125;)
+-- ___
+ 
+-- --- Wibox
+-- Create a textclock widget
+mytextclock = awful.widget.textclock(&#123; align = &quot;right&quot; &#125;,&quot;%x %R&quot;,61)
+-------------------------------------leave--------------------------
+--Spacer
+spacer    = widget(&#123; type = &quot;textbox&quot; &#125;)
+separator = widget(&#123; type = &quot;textbox&quot; &#125;)
+spacer.text     = &quot; &quot;
+separator.text  = &quot;|&quot;
+--Cpu text
+cpu = widget(&#123; type = &quot;textbox&quot; &#125;)
+vicious.register(cpu, vicious.widgets.cpu, &#39; &lt;span color=&quot;brown&quot;&gt;CPU1:&lt;/span&gt; &lt;span color=&quot;orange&quot;&gt;$2%&lt;/span&gt; &lt;span color=&quot;brown&quot;&gt;CPU2:&lt;/span&gt; &lt;span color=&quot;orange&quot;&gt;$3%&lt;/span&gt;&#39;, 1)
+--Cpu wigth
+cpu_g1 = awful.widget.graph()
+cpu_g1:set_width(50)
+cpu_g1:set_background_color(&quot;#333333&quot;)
+cpu_g1:set_color(&quot;#AEC6D8&quot;)
+cpu_g1:set_border_color(&quot;#0a0a0a&quot;)
+vicious.register(cpu_g1, vicious.widgets.cpu, &quot;$2&quot;, 1)
+  
+cpu_g2 = awful.widget.graph()
+cpu_g2:set_width(50)
+cpu_g2:set_background_color(&quot;#333333&quot;)
+cpu_g2:set_color(&quot;#AEC6D8&quot;)
+cpu_g2:set_border_color(&quot;#0a0a0a&quot;)
+vicious.register(cpu_g2, vicious.widgets.cpu, &quot;$3&quot;, 1)
+--MPD
+mpd = widget(&#123; type = &quot;textbox&quot; &#125;)
+vicious.register(mpd, vicious.widgets.mpd,
+    function (widget, args)
+            local ret_str = &#39; &lt;span color=&quot;brown&quot;&gt;NOW Playing:&lt;/span&gt;&#39;
+        if args[&quot;&#123;state&#125;&quot;] == &quot;Stop&quot; then
+            return ret_str .. &#39; &lt;span color=&quot;orange&quot;&gt; - &lt;/span&gt;&#39;
+        else
+            return ret_str .. &#39; &lt;span color=&quot;orange&quot;&gt;&#39;.. args[&quot;&#123;Artist&#125;&quot;]..&#39; - &#39;.. args[&quot;&#123;Title&#125;&quot;]..&#39;&lt;/span&gt;&#39;
+        end
+    end, 3)
+--Weather
+------------------------regex-------------------------
+function get_weather(con)
+    local s = &quot;&lt;current_conditions&gt;.*&lt;\/forecast_conditions&gt;&quot;
+    local i ,j = string.sub(con, string.find(con,s))
+    local s = &quot;\&quot;[a-z0-9A-Z%s:%%]*\&quot;&quot; 
+    local info
+    for word in string.gmatch(i, s) do
+            info = tostring(info)..&quot;\t&quot;..tostring(word) 
+    end
+    local i, j = string.gsub(info, &quot;\&quot;&quot;,&quot;&quot;)
+    local l = split(i,&quot;\t&quot;)
+    return l
+end
+ 
+------------------------split-------------------------
+function split(string, spt)
+    local find_index = 1
+    local spt_index = 1
+    local spt_arr = &#123;&#125;
+    while true do
+        local find_end = string.find(string, spt, find_index)
+        if not find_end then
+            spt_arr[spt_index] = string.sub(string, find_index, string.len(string))
+            break
+        end
+        spt_arr[spt_index] = string.sub(string, find_index, find_end - 1)
+        find_index = find_end + string.len(spt)
+        spt_index = spt_index + 1
+    end
+    return spt_arr
+end
+ 
+------------------------main-------------------------
+weathericon = widget(&#123; type = &quot;imagebox&quot; &#125;)
+weathericon.image = image(beautiful.widget_cloud)
+weather = widget(&#123;type = &quot;textbox&quot; &#125;)
+vicious.register(weather, vicious.widgets.weather,
+ function (widget, args)
+    local http = require(&quot;socket.http&quot;)
+    local night = &#123;[&quot;e&quot;]=&#39;o&#39;,[&quot;f&quot;]=&#39;p&#39;,[&quot;v&quot;]=&#39;v&#39;,[&quot;j&quot;]=&#39;t&#39;,[&quot;k&quot;]=&#39;u&#39;,[&quot;h&quot;]=&#39;r&#39;,[&quot;g&quot;]=&#39;q&#39;,[&quot;c&quot;]=&#39;m&#39;,[&quot;b&quot;]=&#39;l&#39;,[&quot;d&quot;]=&#39;n&#39;,[&quot;a&quot;]=&#39;a&#39;,[&quot;N&quot;]=&#39;N&#39;,[&quot;w&quot;]=&#39;w&#39;&#125;
+    local weather = &#123;[&quot;Sandstorm&quot;]=&#39;e&#39;,[&quot;Duststorm&quot;]=&#39;e&#39;,[&quot;Sand&quot;]=&#39;e&#39;,[&quot;Dust&quot;]=&#39;e&#39;,[&quot;Fog&quot;]=&#39;e&#39;,[&quot;Mist&quot;]=&#39;e&#39;,[&quot;Smoke&quot;]=&#39;e&#39;,[&quot;Haze&quot;]=&#39;e&#39;,[&quot;Overcast&quot;]=&#39;e&#39;,--&#39;e o&#39; 9th 阴霾
+    [&quot;Thunderstorms&quot;]=&#39;f&#39;,[&quot;Thundershowers&quot;]=&#39;f&#39;,[&quot;Storm&quot;]=&#39;f&#39;,[&quot;Lightning&quot;]=&#39;f&#39;,--&#39;f p&#39; 13th 闪电
+    [&quot;Hail&quot;]=&#39;v&#39;,--&#39;v&#39; 14th 冰雹
+    [&quot;Blowing Snow&quot;]=&#39;j&#39;,[&quot;Blizzard&quot;]=&#39;j&#39;,[&quot;Snowdrift&quot;]=&#39;j&#39;,[&quot;Snowstorm&quot;]=&#39;j&#39;,[&quot;Snow&quot;]=&#39;j&#39;,[&quot;Heavy Snow&quot;]=&#39;j&#39;,[&quot;Snowfall&quot;]=&#39;j&#39;, --&#39;j t&#39; 21th 大雪
+    [&quot;Snow Showers&quot;]=&#39;k&#39;,[&quot;Flurries&quot;]=&#39;k&#39;,[&quot;Light Snow&quot;]=&#39;k&#39;,[&quot;Sleet&quot;]=&#39;k&#39;,--&#39;k u&#39; 25th 小雪
+    [&quot;Showers&quot;]=&#39;h&#39;,[&quot;Heavy Showers&quot;]=&#39;h&#39;,[&quot;Rainshower&quot;]=&#39;h&#39;,[&quot;Rain&quot;]=&#39;h&#39;,--&#39;h r&#39; 29th 大雨
+    [&quot;Occasional Showers&quot;]=&#39;g&#39;,[&quot;Scattered Showers&quot;]=&#39;g&#39;,[&quot;Isolated Showers&quot;]=&#39;g&#39;,[&quot;Light Showers&quot;]=&#39;g&#39;,[&quot;Freezing Rain&quot;]=&#39;g&#39;,[&quot;Drizzle&quot;]=&#39;g&#39;,[&quot;Light Rain&quot;]=&#39;g&#39;,--&#39;g q&#39; 36th 小雨
+    [&quot;Sunny Interval&quot;]=&#39;c&#39;,[&quot;No Rain&quot;]=&#39;c&#39;,[&quot;Clearing&quot;]=&#39;c&#39;,--&#39;c m&#39; 39th 多云见晴
+    [&quot;Sunny Period&quot;]=&#39;b&#39;,[&quot;Partly Cloudy&quot;]=&#39;b&#39;,[&quot;Partly Bright&quot;]=&#39;b&#39;,[&quot;Mild&quot;]=&#39;b&#39;,--&#39;b l&#39; 43th 晴见多云
+    [&quot;Cloudy&quot;]=&#39;d&#39;,[&quot;Mostly Cloudy&quot;]=&#39;d&#39;,--&#39;d, n&#39; 45th 多云
+    [&quot;Bright&quot;]=&#39;a&#39;,[&quot;Sunny&quot;]=&#39;a&#39;,[&quot;Fair&quot;]=&#39;a&#39;, --&#39;a&#39; 48th 白天晴天
+    [&quot;Fine&quot;]=&#39;N&#39;,[&quot;Clear&quot;]=&#39;N&#39;,--&#39;N&#39; 50th 晚间晴天
+    [&quot;Windy&quot;]=&#39;w&#39;,[&quot;Squall&quot;]=&#39;w&#39;,[&quot;Stormy&quot;]=&#39;w&#39;,[&quot;Chill&quot;]=&#39;w&#39;,[&quot;Gale&quot;]=&#39;w&#39;--&#39;w&#39; 55th 风
+&#125;
+    local url = &quot;http://www.google.com/ig/api?weather=chengdu&quot;
+    local con, ret = http.request(url)
+    if con == nil then
+        return nil
+    else
+        local l =   get_weather(con)
+        local font_weather = weather[l[2]]
+--[[        if os.date(&quot;%H&quot;,os.time())&gt;&quot;17&quot; then
+            font_weather = night[font_weather]
+        end
+        --]]
+        local temp_c = &#39;y&#39;
+        if l[4] &gt; &quot;28&quot; then
+            temp_c = &#39;z&#39;
+        elseif l[4] &lt; &quot;15&quot; then
+            temp_c = &#39;x&#39;
+        end
+        return &#39;&lt;span font=&quot;Weather regular 16&quot; color=&quot;#FFFF00&quot;&gt;&#39;..font_weather..&#39;&lt;/span&gt;&lt;span color=&quot;orange&quot;&gt; &#39;..l[4]..&#39;°C&lt;/span&gt;&#39;
+    end
+ end
+ 
+--&quot;$&#123;sky&#125; $&#123;tempc&#125; °C&quot;
+, 1800,&quot;ZUUU&quot;)
+ 
+--UPTIME
+uptime = widget(&#123; type = &quot;textbox&quot; &#125;)
+vicious.register(uptime, vicious.widgets.uptime,&#39; &lt;span color=&quot;brown&quot;&gt;UPTIME:&lt;/span&gt; &lt;span color=&quot;orange&quot;&gt;$2:$3&lt;/span&gt;&#39;, 61)
+--MEM
+mem = widget(&#123; type = &quot;textbox&quot; &#125;)
+vicious.register(mem, vicious.widgets.mem, &#39; &lt;span color=&quot;brown&quot;&gt;MEM:&lt;/span&gt; &lt;span color=&quot;orange&quot;&gt;$1% $2MB&lt;/span&gt; &lt;span color=&quot;brown&quot;&gt;SWAP:&lt;/span&gt; &lt;span color=&quot;orange&quot;&gt;$5% $6MB&lt;/span&gt;&#39;, 1)
+--FS
+fs = widget(&#123; type = &quot;textbox&quot; &#125;)
+vicious.register(fs, vicious.widgets.fs, &#39; &lt;span color=&quot;brown&quot;&gt;FS:&lt;/span&gt; &lt;span color=&quot;orange&quot;&gt;$&#123;/ used_gb&#125;GB $&#123;/ used_p&#125;%&lt;/span&gt;&#39;, 5)
+--DIO
+dio = widget(&#123; type = &quot;textbox&quot; &#125;)
+vicious.register(dio, vicious.widgets.dio, &#39; &lt;span color=&quot;brown&quot;&gt;IO:&lt;/span&gt; &lt;span color=&quot;orange&quot;&gt;R:$&#123;read_kb&#125;KB W:$&#123;write_kb&#125;KB&lt;/span&gt;&#39;, 1, &quot;sda&quot;)
+--NET
+net = widget(&#123; type = &quot;textbox&quot; &#125;)
+vicious.register(net, vicious.widgets.net, &#39; &lt;span color=&quot;brown&quot;&gt;NET:&lt;/span&gt; &lt;span color=&quot;orange&quot;&gt;$&#123;eth0 down_kb&#125;KB/$&#123;eth0 up_kb&#125;KB&lt;/span&gt;&#39;, 1)
+-------------------------------------leave--------------------------
+-- Create a systray
+mysystray = widget(&#123; type = &quot;systray&quot; &#125;)
+ 
+-- Create a wibox for each screen and add it
+mywibox_top = &#123;&#125;
+mywibox_bottom = &#123;&#125;
+mypromptbox = &#123;&#125;
+mylayoutbox = &#123;&#125;
+mytaglist = &#123;&#125;
+mytaglist.buttons = awful.util.table.join(
+                    awful.button(&#123; &#125;, 1, awful.tag.viewonly),
+                    awful.button(&#123; modkey &#125;, 1, awful.client.movetotag),
+                    awful.button(&#123; &#125;, 3, awful.tag.viewtoggle),
+                    awful.button(&#123; modkey &#125;, 3, awful.client.toggletag),
+                    awful.button(&#123; &#125;, 4, awful.tag.viewnext),
+                    awful.button(&#123; &#125;, 5, awful.tag.viewprev)
+                    )
+mytasklist = &#123;&#125;
+mytasklist.buttons = awful.util.table.join(
+                     awful.button(&#123; &#125;, 1, function (c)
+                                              if not c:isvisible() then
+                                                  awful.tag.viewonly(c:tags()[1])
+                                              end
+                                              client.focus = c
+                                              c:raise()
+                                          end),
+                     awful.button(&#123; &#125;, 3, function ()
+                                              if instance then
+                                                  instance:hide()
+                                                  instance = nil
+                                              else
+                                                  instance = awful.menu.clients(&#123; width=250 &#125;)
+                                              end
+                                          end),
+                     awful.button(&#123; &#125;, 4, function ()
+                                              awful.client.focus.byidx(1)
+                                              if client.focus then client.focus:raise() end
+                                          end),
+                     awful.button(&#123; &#125;, 5, function ()
+                                              awful.client.focus.byidx(-1)
+                                              if client.focus then client.focus:raise() end
+                                          end))
+ 
+for s = 1, screen.count() do
+    -- Create a promptbox for each screen
+    mypromptbox[s] = awful.widget.prompt(&#123; layout = awful.widget.layout.horizontal.leftright &#125;)
+    -- Create an imagebox widget which will contains an icon indicating which layout we&#39;re using.
+    -- We need one layoutbox per screen.
+    mylayoutbox[s] = awful.widget.layoutbox(s)
+    mylayoutbox[s]:buttons(awful.util.table.join(
+                           awful.button(&#123; &#125;, 1, function () awful.layout.inc(layouts, 1) end),
+                           awful.button(&#123; &#125;, 3, function () awful.layout.inc(layouts, -1) end),
+                           awful.button(&#123; &#125;, 4, function () awful.layout.inc(layouts, 1) end),
+                           awful.button(&#123; &#125;, 5, function () awful.layout.inc(layouts, -1) end)))
+    -- Create a taglist widget
+    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)
+ 
+    -- Create a tasklist widget
+    mytasklist[s] = awful.widget.tasklist(function(c)
+                                              return awful.widget.tasklist.label.currenttags(c, s)
+                                          end, mytasklist.buttons)
+ 
+    -- Create the wibox
+    mywibox_top[s] = awful.wibox(&#123; position = &quot;top&quot;, screen = s &#125;)
+    mywibox_bottom[s] = awful.wibox(&#123; position = &quot;bottom&quot;, screen = s &#125;)
+    -- Add widgets to the wibox - order matters
+        -- top
+         mywibox_top[s].widgets = &#123;
+        &#123;
+            mylauncher,
+            mytaglist[s],
+            mypromptbox[s],
+            layout = awful.widget.layout.horizontal.leftright
+        &#125;,
+        mylayoutbox[s],
+        mytextclock,
+        s == 1 and mysystray or nil,
+                spacer,
+                uptime,
+            weather,
+                spacer,
+                weathericon,
+        mytasklist[s],
+        layout = awful.widget.layout.horizontal.rightleft
+    &#125;
+        --bottom
+    mywibox_bottom[s].widgets = &#123;
+            &#123;
+                fs,
+                separator,
+                mem,
+                separator,
+                dio,
+                separator,
+                net,
+                separator,
+                mpd,
+                layout = awful.widget.layout.horizontal.leftright
+            &#125;,
+                cpu_g1.widget,
+                spacer,
+                cpu_g2.widget,
+                spacer,
+        layout = awful.widget.layout.horizontal.rightleft
+    &#125;
+end
+-- ___
+ 
+-- --- Mouse bindings
+root.buttons(awful.util.table.join(
+    awful.button(&#123; &#125;, 3, function () mymainmenu:toggle() end),
+    awful.button(&#123; &#125;, 4, awful.tag.viewnext),
+    awful.button(&#123; &#125;, 5, awful.tag.viewprev)
+))
+-- ___
+ 
+-- --- Key bindings
+globalkeys = awful.util.table.join(
+    awful.key(&#123; modkey,           &#125;, &quot;Left&quot;,   awful.tag.viewprev       ),
+    awful.key(&#123; modkey,           &#125;, &quot;Right&quot;,  awful.tag.viewnext       ),
+    awful.key(&#123; modkey,           &#125;, &quot;Escape&quot;, awful.tag.history.restore),
+ 
+    awful.key(&#123; modkey,           &#125;, &quot;j&quot;,
+        function ()
+            awful.client.focus.byidx( 1)
+            if client.focus then client.focus:raise() end
+        end),
+    awful.key(&#123; modkey,           &#125;, &quot;k&quot;,
+        function ()
+            awful.client.focus.byidx(-1)
+            if client.focus then client.focus:raise() end
+        end),
+    awful.key(&#123; modkey,           &#125;, &quot;w&quot;, function () mymainmenu:show(&#123;keygrabber=true&#125;) end),
+        -- Unminimize clients
+        awful.key(&#123; modkey, &quot;Control&quot; &#125;, &quot;m&quot;,
+        function ()
+            local allclients = client.get(mouse.screen)
+            for _, c in ipairs(allclients) do
+                if c.minimized and c:tags()[mouse.screen] == awful.tag.selected(mouse.screen) then
+                    c.minimized = false
+                    client.focus = c
+                    c:raise()
+                    return
+                end
+            end
+        end),
+    -- Layout manipulation
+    awful.key(&#123; modkey, &quot;Shift&quot;   &#125;, &quot;j&quot;, function () awful.client.swap.byidx(  1)    end),
+    awful.key(&#123; modkey, &quot;Shift&quot;   &#125;, &quot;k&quot;, function () awful.client.swap.byidx( -1)    end),
+    awful.key(&#123; modkey, &quot;Control&quot; &#125;, &quot;j&quot;, function () awful.screen.focus_relative( 1) end),
+    awful.key(&#123; modkey, &quot;Control&quot; &#125;, &quot;k&quot;, function () awful.screen.focus_relative(-1) end),
+    awful.key(&#123; modkey,           &#125;, &quot;u&quot;, awful.client.urgent.jumpto),
+        -- 截图 ---3
+        awful.key(&#123; &#125;, &quot;Print&quot;, function ()
+            -- 截图：全屏
+            awful.util.spawn(&quot;zsh -c &#39;cd ~/tmpfs&amp;&amp;scrot fullsc.png&#39;&quot;)
+            os.execute(&quot;sleep .5&quot;)
+            naughty.notify(&#123;title=&quot;截图&quot;, text=&quot;全屏截图已保存。&quot;&#125;)
+        end),
+        awful.key(&#123; &quot;Shift&quot;, &#125;, &quot;Print&quot;, function ()
+            -- 截图：当前窗口
+            awful.util.spawn(&quot;zsh -c &#39;cd ~/tmpfs&amp;&amp;scrot -u&#39;&quot;)
+            os.execute(&quot;sleep .5&quot;)
+            naughty.notify(&#123;title=&quot;截图&quot;, text=&quot;当前窗口截图已保存。&quot;&#125;)
+        end),
+ 
+        -- ---3 sdcv
+        awful.key(&#123; modkey &#125;, &quot;d&quot;, function ()
+            local f = io.popen(&quot;xsel -p&quot;)
+            local new_word = f:read(&quot;*a&quot;)
+            f:close()
+ 
+            if frame ~= nil then
+                naughty.destroy(frame)
+                frame = nil
+                if old_word == new_word then
+                    return
+                end
+            end
+            old_word = new_word
+ 
+            local fc = &quot;&quot;
+            local f = io.popen(&quot;sdcv -n --utf8-output -u &#39;stardict1.3英汉辞典&#39; &quot;..new_word)
+            for line in f:lines() do
+                fc = fc .. line .. &#39;\n&#39;
+            end
+            f:close()
+            frame = naughty.notify(&#123; text = fc, timeout = 5, width = 320 &#125;)
+        end),
+    awful.key(&#123; modkey,           &#125;, &quot;Tab&quot;,
+        function ()
+            awful.client.focus.history.previous()
+            if client.focus then
+                client.focus:raise()
+            end
+        end),
+ 
+    -- Standard program
+    awful.key(&#123; modkey,           &#125;, &quot;Return&quot;, function () awful.util.spawn(terminal) end),
+    awful.key(&#123; modkey, &quot;Control&quot; &#125;, &quot;r&quot;, awesome.restart),
+    awful.key(&#123; modkey, &quot;Shift&quot;   &#125;, &quot;q&quot;, awesome.quit),
+ 
+    awful.key(&#123; modkey,           &#125;, &quot;l&quot;,     function () awful.tag.incmwfact( 0.05)    end),
+    awful.key(&#123; modkey,           &#125;, &quot;h&quot;,     function () awful.tag.incmwfact(-0.05)    end),
+    awful.key(&#123; modkey, &quot;Shift&quot;   &#125;, &quot;h&quot;,     function () awful.tag.incnmaster( 1)      end),
+    awful.key(&#123; modkey, &quot;Shift&quot;   &#125;, &quot;l&quot;,     function () awful.tag.incnmaster(-1)      end),
+    awful.key(&#123; modkey, &quot;Control&quot; &#125;, &quot;h&quot;,     function () awful.tag.incncol( 1)         end),
+    awful.key(&#123; modkey, &quot;Control&quot; &#125;, &quot;l&quot;,     function () awful.tag.incncol(-1)         end),
+    awful.key(&#123; modkey,           &#125;, &quot;space&quot;, function () awful.layout.inc(layouts,  1) end),
+    awful.key(&#123; modkey, &quot;Shift&quot;   &#125;, &quot;space&quot;, function () awful.layout.inc(layouts, -1) end),
+ 
+    -- Prompt
+    awful.key(&#123; modkey &#125;,            &quot;r&quot;,     function () mypromptbox[mouse.screen]:run() end),
+ 
+    awful.key(&#123; modkey &#125;, &quot;x&quot;,
+              function ()
+                  awful.prompt.run(&#123; prompt = &quot;Run Lua code: &quot; &#125;,
+                  mypromptbox[mouse.screen].widget,
+                  awful.util.eval, nil,
+                  awful.util.getdir(&quot;cache&quot;) .. &quot;/history_eval&quot;)
+              end)
+)
+ 
+clientkeys = awful.util.table.join(
+    awful.key(&#123; modkey,           &#125;, &quot;f&quot;,      function (c) c.fullscreen = not c.fullscreen  end),
+    awful.key(&#123; modkey, &quot;Shift&quot;   &#125;, &quot;c&quot;,      function (c) c:kill()                         end),
+    awful.key(&#123; modkey, &quot;Control&quot; &#125;, &quot;space&quot;,  awful.client.floating.toggle                     ),
+    awful.key(&#123; modkey, &quot;Control&quot; &#125;, &quot;Return&quot;, function (c) c:swap(awful.client.getmaster()) end),
+    awful.key(&#123; modkey,           &#125;, &quot;o&quot;,      awful.client.movetoscreen                        ),
+    awful.key(&#123; modkey, &quot;Shift&quot;   &#125;, &quot;r&quot;,      function (c) c:redraw()                       end),
+    awful.key(&#123; modkey,           &#125;, &quot;t&quot;,      function (c) c.ontop = not c.ontop            end),
+    awful.key(&#123; modkey,           &#125;, &quot;n&quot;,      function (c) c.minimized = not c.minimized    end),
+    awful.key(&#123; modkey,           &#125;, &quot;m&quot;,
+        function (c)
+            c.maximized_horizontal = not c.maximized_horizontal
+            c.maximized_vertical   = not c.maximized_vertical
+        end)
+)
+ 
+-- Compute the maximum number of digit we need, limited to 9
+keynumber = 0
+for s = 1, screen.count() do
+   keynumber = math.min(9, math.max(#tags[s], keynumber));
+end
+ 
+-- Bind all key numbers to tags.
+-- Be careful: we use keycodes to make it works on any keyboard layout.
+-- This should map on the top row of your keyboard, usually 1 to 9.
+for i = 1, keynumber do
+    globalkeys = awful.util.table.join(globalkeys,
+        awful.key(&#123; modkey &#125;, &quot;#&quot; .. i + 9,
+                  function ()
+                        local screen = mouse.screen
+                        if tags[screen][i] then
+                            awful.tag.viewonly(tags[screen][i])
+                        end
+                  end),
+        awful.key(&#123; modkey, &quot;Control&quot; &#125;, &quot;#&quot; .. i + 9,
+                  function ()
+                      local screen = mouse.screen
+                      if tags[screen][i] then
+                          awful.tag.viewtoggle(tags[screen][i])
+                      end
+                  end),
+        awful.key(&#123; modkey, &quot;Shift&quot; &#125;, &quot;#&quot; .. i + 9,
+                  function ()
+                      if client.focus and tags[client.focus.screen][i] then
+                          awful.client.movetotag(tags[client.focus.screen][i])
+                      end
+                  end),
+        awful.key(&#123; modkey, &quot;Control&quot;, &quot;Shift&quot; &#125;, &quot;#&quot; .. i + 9,
+                  function ()
+                      if client.focus and tags[client.focus.screen][i] then
+                          awful.client.toggletag(tags[client.focus.screen][i])
+                      end
+                  end))
+end
+ 
+clientbuttons = awful.util.table.join(
+    awful.button(&#123; &#125;, 1, function (c) client.focus = c; c:raise() end),
+    awful.button(&#123; modkey &#125;, 1, awful.mouse.client.move),
+    awful.button(&#123; modkey &#125;, 3, awful.mouse.client.resize))
+ 
+-- Set keys
+root.keys(globalkeys)
+-- ___
+ 
+-- --- Rules
+awful.rules.rules = &#123;
+    -- All clients will match this rule.
+    &#123; rule = &#123; &#125;,
+      properties = &#123; border_width = beautiful.border_width,
+                     border_color = beautiful.border_normal,
+                     focus = true,
+                     keys = clientkeys,
+                     buttons = clientbuttons &#125; &#125;,
+    &#123; rule = &#123; class = &quot;MPlayer&quot; &#125;,
+      properties = &#123; floating = true &#125; &#125;,
+    &#123; rule = &#123; class = &quot;pinentry&quot; &#125;,
+      properties = &#123; floating = true &#125; &#125;,
+    &#123; rule = &#123; class = &quot;gimp&quot; &#125;,
+      properties = &#123; floating = true &#125; &#125;,
+    -- Set Firefox to always map on tags number 2 of screen 1.
+    -- &#123; rule = &#123; class = &quot;Firefox&quot; &#125;,
+    --   properties = &#123; tag = tags[1][2] &#125; &#125;,
+&#125;
+-- ___
+ 
+-- --- Signals
+-- Signal function to execute when a new client appears.
+client.add_signal(&quot;manage&quot;, function (c, startup)
+    -- Add a titlebar
+    -- awful.titlebar.add(c, &#123; modkey = modkey &#125;)
+ 
+    -- Enable sloppy focus
+    c:add_signal(&quot;mouse::enter&quot;, function(c)
+        if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
+            and awful.client.focus.filter(c) then
+            client.focus = c
+        end
+    end)
+ 
+    if not startup then
+        -- Set the windows at the slave,
+        -- i.e. put it at the end of others instead of setting it master.
+        -- awful.client.setslave(c)
+ 
+        -- Put windows in a smart way, only if they does not set an initial position.
+        if not c.size_hints.user_position and not c.size_hints.program_position then
+            awful.placement.no_overlap(c)
+            awful.placement.no_offscreen(c)
+        end
+    end
+end)
+ 
+client.add_signal(&quot;focus&quot;, function(c) c.border_color = beautiful.border_focus end)
+client.add_signal(&quot;unfocus&quot;, function(c) c.border_color = beautiful.border_normal end)
+-- ___
+floatapps =
+&#123;
+    [&quot;MPlayer&quot;] = true,
+    [&quot;gimp&quot;] = true,
+    [&quot;smplayer&quot;] = true,
+    [&quot;mocp&quot;] = true,
+    [&quot;Codeblocks&quot;] = true,
+    [&quot;Dialog&quot;] = true,
+    [&quot;Download&quot;] = true,
+    [&quot;empathy&quot;] = true,
+&#125;
+ 
+-- 把指定的程序自动移动到某个特定的屏幕的某个tag上面
+apptags =
+&#123;
+    [&quot;smplayer&quot;] = &#123; screen = 1, tag = 7 &#125;,
+    [&quot;amarokapp&quot;] = &#123; screen = 1, tag = 8 &#125;,
+    [&quot;VirtualBox&quot;] = &#123; screen = 1, tag = 9 &#125;,
+    [&quot;Firefox&quot;] = &#123; screen = 1, tag = 1&#125;,
+    [&quot;Thunderbird-bin&quot;] = &#123; screen = 1, tag = 7 &#125;,
+    [&quot;Linux-fetion&quot;] = &#123; screen = 1, tag = 6 &#125;,
+&#125;
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://github.com/leemeng0x61">
+            <span class="icon">
+              <i class="fab fa-github"></i>
+            </span>
+
+            <span class="label">GitHub</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/awesome/" rel="tag"># awesome</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2011/03/25/2011/awesome-rc-config-for-google-weather/" rel="prev" title="awesome 脚本中加入天气">
+                  <i class="fa fa-angle-left"></i> awesome 脚本中加入天气
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2011/04/15/2011/attachment-of-mutt-display/" rel="next" title="关于mutt发送中文附件，foxmail，outlook接受不到的问题">
+                  关于mutt发送中文附件，foxmail，outlook接受不到的问题 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Leemeng0x61</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">19k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:09</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"leemeng0x61/leemeng0x61.github.io","issue_term":"pathname","theme":"preferred-color-scheme"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>
