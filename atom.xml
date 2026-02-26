@@ -6,7 +6,7 @@
   <link href="https://leemeng0x61.github.io/atom.xml" rel="self"/>
   
   <link href="https://leemeng0x61.github.io/"/>
-  <updated>2026-02-26T03:11:44.277Z</updated>
+  <updated>2026-02-26T04:30:23.149Z</updated>
   <id>https://leemeng0x61.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>逆光中的信使</title>
+    <link href="https://leemeng0x61.github.io/2026/02/26/2026-02-26-backlit-messenger-jincheng-park/"/>
+    <id>https://leemeng0x61.github.io/2026/02/26/2026-02-26-backlit-messenger-jincheng-park/</id>
+    <published>2026-02-26T04:27:00.000Z</published>
+    <updated>2026-02-26T04:30:23.149Z</updated>
+    
+    
+    <summary type="html">成都的春天总是从紫叶李开始的。在锦城公园，正午的阳光穿透薄薄的花瓣，把它们照得近乎透明。那些淡紫色的花蕊在光线下像细小的触角，探向天空。</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://leemeng0x61.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="锦城公园" scheme="https://leemeng0x61.github.io/tags/%E9%94%A6%E5%9F%8E%E5%85%AC%E5%9B%AD/"/>
+    
+    <category term="成都" scheme="https://leemeng0x61.github.io/tags/%E6%88%90%E9%83%BD/"/>
+    
+    <category term="春天" scheme="https://leemeng0x61.github.io/tags/%E6%98%A5%E5%A4%A9/"/>
+    
+    <category term="紫叶李" scheme="https://leemeng0x61.github.io/tags/%E7%B4%AB%E5%8F%B6%E6%9D%8E/"/>
+    
+    <category term="随笔" scheme="https://leemeng0x61.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="城市观察" scheme="https://leemeng0x61.github.io/tags/%E5%9F%8E%E5%B8%82%E8%A7%82%E5%AF%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>晨光中的玻璃森林</title>
@@ -33,11 +62,11 @@
     
     <category term="成都" scheme="https://leemeng0x61.github.io/tags/%E6%88%90%E9%83%BD/"/>
     
-    <category term="孵化园" scheme="https://leemeng0x61.github.io/tags/%E5%AD%B5%E5%8C%96%E5%9B%AD/"/>
+    <category term="随笔" scheme="https://leemeng0x61.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
     <category term="城市观察" scheme="https://leemeng0x61.github.io/tags/%E5%9F%8E%E5%B8%82%E8%A7%82%E5%AF%9F/"/>
     
-    <category term="随笔" scheme="https://leemeng0x61.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    <category term="孵化园" scheme="https://leemeng0x61.github.io/tags/%E5%AD%B5%E5%8C%96%E5%9B%AD/"/>
     
     <category term="晨光" scheme="https://leemeng0x61.github.io/tags/%E6%99%A8%E5%85%89/"/>
     
@@ -421,25 +450,6 @@
     
     
     <category term="lua" scheme="https://leemeng0x61.github.io/tags/lua/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于awesome设置时间格式的问题！</title>
-    <link href="https://leemeng0x61.github.io/2011/01/28/2011/something-about-awesome-s-date/"/>
-    <id>https://leemeng0x61.github.io/2011/01/28/2011/something-about-awesome-s-date/</id>
-    <published>2011-01-28T00:00:00.000Z</published>
-    <updated>2026-02-26T02:53:03.623Z</updated>
-    
-    
-    <summary type="html">Window Manager awesome 的时间显示</summary>
-    
-    
-    
-    <category term="technology" scheme="https://leemeng0x61.github.io/categories/technology/"/>
-    
-    
-    <category term="awesome" scheme="https://leemeng0x61.github.io/tags/awesome/"/>
     
   </entry>
   
