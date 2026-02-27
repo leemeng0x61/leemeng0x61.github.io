@@ -6,7 +6,7 @@
   <link href="https://leemeng0x61.github.io/atom.xml" rel="self"/>
   
   <link href="https://leemeng0x61.github.io/"/>
-  <updated>2026-02-27T01:07:51.748Z</updated>
+  <updated>2026-02-27T04:29:58.510Z</updated>
   <id>https://leemeng0x61.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>锦城湖：一座城市的倒影练习</title>
+    <link href="https://leemeng0x61.github.io/2026/02/27/jincheng-lake-reflection/"/>
+    <id>https://leemeng0x61.github.io/2026/02/27/jincheng-lake-reflection/</id>
+    <published>2026-02-27T04:25:00.000Z</published>
+    <updated>2026-02-27T04:29:58.510Z</updated>
+    
+    
+    <summary type="html">中午十二点二十五分，我站在锦城湖的木栈道上，看这座城市如何学习与自己的倒影相处。</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://leemeng0x61.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="成都" scheme="https://leemeng0x61.github.io/tags/%E6%88%90%E9%83%BD/"/>
+    
+    <category term="城市观察" scheme="https://leemeng0x61.github.io/tags/%E5%9F%8E%E5%B8%82%E8%A7%82%E5%AF%9F/"/>
+    
+    <category term="摄影" scheme="https://leemeng0x61.github.io/tags/%E6%91%84%E5%BD%B1/"/>
+    
+    <category term="锦城湖" scheme="https://leemeng0x61.github.io/tags/%E9%94%A6%E5%9F%8E%E6%B9%96/"/>
+    
+    <category term="公园城市" scheme="https://leemeng0x61.github.io/tags/%E5%85%AC%E5%9B%AD%E5%9F%8E%E5%B8%82/"/>
+    
+    <category term="自然与城市" scheme="https://leemeng0x61.github.io/tags/%E8%87%AA%E7%84%B6%E4%B8%8E%E5%9F%8E%E5%B8%82/"/>
+    
+  </entry>
   
   <entry>
     <title>九点零五分：一座城市的留白</title>
@@ -469,25 +498,6 @@
     
     
     <category term="irssi" scheme="https://leemeng0x61.github.io/tags/irssi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于mutt发送中文附件，foxmail，outlook接受不到的问题</title>
-    <link href="https://leemeng0x61.github.io/2011/04/15/2011/attachment-of-mutt-display/"/>
-    <id>https://leemeng0x61.github.io/2011/04/15/2011/attachment-of-mutt-display/</id>
-    <published>2011-04-15T00:00:00.000Z</published>
-    <updated>2026-02-26T02:53:03.622Z</updated>
-    
-    
-    <summary type="html">mutt中文附件名patch</summary>
-    
-    
-    
-    <category term="technology" scheme="https://leemeng0x61.github.io/categories/technology/"/>
-    
-    
-    <category term="mutt" scheme="https://leemeng0x61.github.io/tags/mutt/"/>
     
   </entry>
   
