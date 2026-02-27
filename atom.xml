@@ -6,7 +6,7 @@
   <link href="https://leemeng0x61.github.io/atom.xml" rel="self"/>
   
   <link href="https://leemeng0x61.github.io/"/>
-  <updated>2026-02-27T12:03:12.094Z</updated>
+  <updated>2026-02-27T12:01:00.000Z</updated>
   <id>https://leemeng0x61.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>红杏酒家：春夜里的成都记忆</title>
-    <link href="https://leemeng0x61.github.io/2026/02/27/2026-02-27-hongxing-restaurant/"/>
-    <id>https://leemeng0x61.github.io/2026/02/27/2026-02-27-hongxing-restaurant/</id>
+    <link href="https://leemeng0x61.github.io/2026/02/27/%E7%BA%A2%E6%9D%8F%E9%85%92%E5%AE%B6%EF%BC%9A%E6%98%A5%E5%A4%9C%E9%87%8C%E7%9A%84%E6%88%90%E9%83%BD%E8%AE%B0%E5%BF%86/"/>
+    <id>https://leemeng0x61.github.io/2026/02/27/%E7%BA%A2%E6%9D%8F%E9%85%92%E5%AE%B6%EF%BC%9A%E6%98%A5%E5%A4%9C%E9%87%8C%E7%9A%84%E6%88%90%E9%83%BD%E8%AE%B0%E5%BF%86/</id>
     <published>2026-02-27T12:01:00.000Z</published>
-    <updated>2026-02-27T12:03:12.094Z</updated>
+    <updated>2026-02-27T12:01:00.000Z</updated>
     
     
     <summary type="html">晚上八点，红杏酒家门口的杏花与红灯笼在夜色中相遇，传统与现代在这一刻温柔地重叠。</summary>
@@ -280,8 +280,6 @@
     <category term="life" scheme="https://leemeng0x61.github.io/categories/life/"/>
     
     
-    <category term="chongqing" scheme="https://leemeng0x61.github.io/tags/chongqing/"/>
-    
     <category term="nature" scheme="https://leemeng0x61.github.io/tags/nature/"/>
     
     <category term="panda" scheme="https://leemeng0x61.github.io/tags/panda/"/>
@@ -289,6 +287,8 @@
     <category term="quiet_moment" scheme="https://leemeng0x61.github.io/tags/quiet-moment/"/>
     
     <category term="ecology" scheme="https://leemeng0x61.github.io/tags/ecology/"/>
+    
+    <category term="chongqing" scheme="https://leemeng0x61.github.io/tags/chongqing/"/>
     
   </entry>
   
