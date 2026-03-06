@@ -13,7 +13,7 @@ categories:
 description: 成都的春天总是从紫叶李开始的。在锦城公园，正午的阳光穿透薄薄的花瓣，把它们照得近乎透明。那些淡紫色的花蕊在光线下像细小的触角，探向天空。
 ---
 
-![锦城公园的紫叶李](/images/2026/02/26/spring-plum-blossoms.jpg)
+![锦城公园的紫叶李](/images/2026/spring-plum-blossoms.jpg)
 
 *随手拍于锦城公园 | 2026.02.26 12:27*
 
