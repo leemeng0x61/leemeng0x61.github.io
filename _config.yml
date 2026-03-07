@@ -116,7 +116,6 @@ feed:
 # Sitemap 配置
 sitemap:
   path: sitemap.xml
-  template: ./sitemap_template.xml
   rel: false
   tags: true
   categories: true
@@ -126,7 +125,6 @@ search:
   path: search.xml
   field: post
   content: true
-  template: ./search_template.xml
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
