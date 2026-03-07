@@ -98,6 +98,36 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: landscape
 
+# RSS Feed 配置
+feed:
+  enable: true
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+  icon: icon.png
+  autodiscovery: true
+  template:
+
+# Sitemap 配置
+sitemap:
+  path: sitemap.xml
+  template: ./sitemap_template.xml
+  rel: false
+  tags: true
+  categories: true
+
+# 搜索配置
+search:
+  path: search.xml
+  field: post
+  content: true
+  template: ./search_template.xml
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
