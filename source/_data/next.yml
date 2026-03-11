@@ -34,12 +34,26 @@ social_icons:
   icons_only: false
   transition: false
 
+# 页脚订阅
+follow_me:
+  RSS: /atom.xml || fa fa-rss
+  GitHub: https://github.com/leemeng0x61 || fab fa-github
+
 # 代码复制按钮
 codeblock:
   copy_button:
     enable: true
     style: mac
   language: true
+
+# 阅读进度条
+reading_progress:
+  enable: true
+  start_at: left
+  position: top
+  reversed: false
+  color: "#37c6c0"
+  height: 3px
 
 # MathJax 数学公式
 math:
@@ -48,12 +62,15 @@ math:
     enable: true
     tags: ams
 
+# 图片懒加载
+lazyload: true
+
 # 本地搜索
 local_search:
   enable: true
   top_n_per_article: 5
-  unescape: true
-  preload: true
+  unescape: false
+  preload: false
 
 # 字数统计
 symbols_count_time:
@@ -80,4 +97,4 @@ utterances:
   enable: true
   repo: leemeng0x61/leemeng0x61.github.io
   issue_term: pathname
-  theme: github-light
+  theme: preferred-color-scheme
