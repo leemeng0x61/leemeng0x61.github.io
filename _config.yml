@@ -46,10 +46,11 @@ future: true
 syntax_highlighter: highlight.js
 highlight:
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace: ''
   wrap: true
   hljs: false
+  
 prismjs:
   preprocess: true
   line_number: true
@@ -63,6 +64,8 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
+  # 文章置顶（需要 hexo-generator-topindex 插件）
+  # top: 3
 
 # Category & Tag
 default_category: uncategorized
@@ -96,22 +99,10 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
-# RSS Feed 配置
-feed:
-  enable: true
-  type: atom
-  path: atom.xml
-  limit: 20
-  hub:
-  content:
-  content_limit: 140
-  content_limit_delim: ' '
-  order_by: -date
-  icon: icon.png
-  autodiscovery: true
-  template:
+# RSS Feed 配置（已在上文配置）
+# feed:
 
 # Sitemap 配置
 sitemap:
@@ -125,6 +116,30 @@ search:
   path: search.xml
   field: post
   content: true
+
+# 字数统计配置
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
+  exclude_codeblock: false
+  awl: 4
+  wpm: 275
+
+# 图片懒加载
+lazyload:
+  enable: true
+  onlypost: false
+  loadingImg: /images/loading.gif
+
+# nofollow 外链优化
+nofollow:
+  enable: true
+  field: site
+  exclude:
+    - 'exclude1.com'
+    - 'exclude2.com'
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
