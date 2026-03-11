@@ -1,16 +1,32 @@
 # NexT 主题自定义配置
-# 此文件用于覆盖 themes/next/_config.yml 的默认配置
+# 此文件覆盖 themes/next/_config.yml 的默认配置
+
+# 站点优化
+minify: true
+
+# 暗黑模式
+darkmode: true
+lightdark:
+  enable: true
+  check_supports: true
+
+# Favicon
+favicon:
+  small: /images/favicon.png
+  medium: /images/favicon.png
+  apple_touch_icon: /images/favicon.png
+  safari_pinned_tab: /images/favicon.png
 
 # 头像配置
 avatar:
-  url: /images/avatar.png
+  url: /images/photo.jpg
   rounded: true
-  rotated: true
+  rotated: false
 
 # 社交链接
 social:
   GitHub: https://github.com/leemeng0x61 || fab fa-github
-  E-Mail: mailto:mengqicheng@163.com || fa fa-envelope
+  E-Mail: mailto:leemeng0x61@gmail.com || fa fa-envelope
   RSS: /atom.xml || fa fa-rss
 
 social_icons:
